@@ -1,0 +1,54 @@
+    <mat-card *ngIf="warehouseReview" ngForm #warehouseReviewForm="ngForm">
+        <mat-card-title>WarehouseReview Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="user" class="required">User</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <user-auto-complete [(ngModel)]="warehouseReview.user" id="user" name="user" [disabled]="sub"></user-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoUser" type="button" (click)="gotoUser()" *ngIf="!sub && warehouseReview.user" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearUser" type="button" (click)="clearUser()" *ngIf="!sub && warehouseReview.user" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="overallRating" >Overall Rating</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="overallRating" type="number" [(ngModel)]="warehouseReview.overallRating"  name="overallRating" #overallRating="ngModel" />
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="turnaroundTime" >Turnaround Time</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="turnaroundTime" type="number" [(ngModel)]="warehouseReview.turnaroundTime"  name="turnaroundTime" #turnaroundTime="ngModel" />
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="responsiveness" >Responsiveness</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="responsiveness" [(ngModel)]="warehouseReview.responsiveness"   autoResize="true" name="responsiveness" #responsiveness="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="comments" >Comments</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="comments" [(ngModel)]="warehouseReview.comments"   autoResize="true" name="comments" #comments="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+           </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!warehouseReviewForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

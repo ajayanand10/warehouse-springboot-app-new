@@ -1,0 +1,115 @@
+    <mat-card *ngIf="databasechangelog" ngForm #databasechangelogForm="ngForm">
+        <mat-card-title>Databasechangelog Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+                <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="id"  class="required">Id</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="id" [(ngModel)]="databasechangelog.id"  required   autoResize="true" name="id" #id="ngModel"></textarea>
+                    
+                    <mat-error *ngIf="!id.valid && id.dirty && id.errors['required']">
+                        Id is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="author"  class="required">Author</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="author" [(ngModel)]="databasechangelog.author"  required   autoResize="true" name="author" #author="ngModel"></textarea>
+                    
+                    <mat-error *ngIf="!author.valid && author.dirty && author.errors['required']">
+                        Author is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="comments" >Comments</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="comments" [(ngModel)]="databasechangelog.comments"   autoResize="true" name="comments" #comments="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="contexts" >Contexts</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="contexts" [(ngModel)]="databasechangelog.contexts"   autoResize="true" name="contexts" #contexts="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="dateexecuted"  class="required">Dateexecuted</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <p-calendar [(ngModel)]="databasechangelog.dateexecuted" dateFormat="yy-mm-dd" showTime="true" [ngModelOptions]="{standalone: true}"></p-calendar>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="description" >Description</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="description" [(ngModel)]="databasechangelog.description"   autoResize="true" name="description" #description="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="exectype"  class="required">Exectype</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="exectype" type="text" [(ngModel)]="databasechangelog.exectype"  required   name="exectype" #exectype="ngModel"/>
+                    
+                    <mat-error *ngIf="!exectype.valid && exectype.dirty && exectype.errors['required']">
+                        Exectype is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="filename"  class="required">Filename</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="filename" [(ngModel)]="databasechangelog.filename"  required   autoResize="true" name="filename" #filename="ngModel"></textarea>
+                    
+                    <mat-error *ngIf="!filename.valid && filename.dirty && filename.errors['required']">
+                        Filename is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="labels" >Labels</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="labels" [(ngModel)]="databasechangelog.labels"   autoResize="true" name="labels" #labels="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="liquibase" >Liquibase</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="liquibase" type="text" [(ngModel)]="databasechangelog.liquibase"   name="liquibase" #liquibase="ngModel"/>
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="md5sum" >Md5sum</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="md5sum" type="text" [(ngModel)]="databasechangelog.md5sum"   name="md5sum" #md5sum="ngModel"/>
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="orderexecuted"  class="required">Orderexecuted</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="orderexecuted" type="number" [(ngModel)]="databasechangelog.orderexecuted"  required  name="orderexecuted" #orderexecuted="ngModel" />
+                    
+                    <mat-error *ngIf="!orderexecuted.valid && orderexecuted.dirty && orderexecuted.errors['required']">
+                        Orderexecuted is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="tag" >Tag</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="tag" [(ngModel)]="databasechangelog.tag"   autoResize="true" name="tag" #tag="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!databasechangelogForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

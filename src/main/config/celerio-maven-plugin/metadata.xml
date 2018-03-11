@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://www.jaxio.com/schema/celerio">
+  <jdbcConnectivity driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-184-73-202-179.compute-1.amazonaws.com:5432/ddk3474pq7ubr8?sslmode=require" user="gjkwdpbvpdlxif" password="e21cf379b73fdbc6a25c9e94181bdf50b2df6e5a1a2f1344d0478a5fc855e309" schemaName="" oracleRetrieveRemarks="false" oracleRetrieveSynonyms="true" reverseIndexes="true" reverseOnlyUniqueIndexes="true" catalog="">
+    <tableNamePatterns/>
+    <tableTypes>
+      <tableType>TABLE</tableType>
+    </tableTypes>
+  </jdbcConnectivity>
+  <databaseInfo databaseMajorVersion="10" databaseMinorVersion="2" databaseProductName="PostgreSQL" databaseProductVersion="10.2 (Ubuntu 10.2-1.pgdg14.04+1)" driverMajorVersion="42" driverMinorVersion="2" driverName="PostgreSQL JDBC Driver" driverVersion="42.2.1" extraInfo=""/>
+  <tables>
+    <table name="bookmark" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('bookmark_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="user_id" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="10" type="INTEGER"/>
+        <column name="warehouse_id" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="4" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="6" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="bookmark_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="user_id" fkName="bookmark_user_id_fk" pkColumnName="id" pkTableName="user" pkTableSchema="public"/>
+        <importedKey fkColumnName="warehouse_id" fkName="bookmark_warehouse_id_fk" pkColumnName="id" pkTableName="warehouse" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="databasechangelog" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="255" type="VARCHAR"/>
+        <column name="author" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
+        <column name="comments" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="255" type="VARCHAR"/>
+        <column name="contexts" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="255" type="VARCHAR"/>
+        <column name="dateexecuted" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="5" size="29" type="TIMESTAMP"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="255" type="VARCHAR"/>
+        <column name="exectype" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="7" size="10" type="VARCHAR"/>
+        <column name="filename" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="8" size="255" type="VARCHAR"/>
+        <column name="labels" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="255" type="VARCHAR"/>
+        <column name="liquibase" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="20" type="VARCHAR"/>
+        <column name="md5sum" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="35" type="VARCHAR"/>
+        <column name="orderexecuted" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="12" size="10" type="INTEGER"/>
+        <column name="tag" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="13" size="255" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="databasechangelog_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="databasechangeloglock" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="locked" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="1" type="BIT"/>
+        <column name="lockedby" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="255" type="VARCHAR"/>
+        <column name="lockgranted" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="4" size="29" type="TIMESTAMP"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="databasechangeloglock_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="enquiry" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('enquiry_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="user_id" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="10" type="INTEGER"/>
+        <column name="warehouse_id" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="10" type="INTEGER"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="255" type="VARCHAR"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="5" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="7" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="enquiry_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="user_id" fkName="enquiry_user_id_fk" pkColumnName="id" pkTableName="user" pkTableSchema="public"/>
+        <importedKey fkColumnName="warehouse_id" fkName="enquiry_warehouse_id_fk" pkColumnName="id" pkTableName="warehouse" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="goods" type="TABLE" schemaName="public">
+      <columns>
+        <column name="type_of_goods_id" columnDef="nextval('goods_type_of_goods_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="255" type="VARCHAR"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="255" type="VARCHAR"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="4" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="6" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="type_of_goods_id" indexName="goods_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>type_of_goods_id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="guest" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('guest_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="2" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="4" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="guest_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="order" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('order_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="order_date" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="13" type="DATE"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="3" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="5" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="order_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="passport" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('passport_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="expiration_date" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="13" type="DATE"/>
+        <column name="passport_number" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
+        <column name="holder_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="4" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="passport_pkey" nonUnique="false"/>
+        <indexe columnName="holder_id" indexName="uk_dnm6peshg9qd1s0x2d63paapo" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="project" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('project_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
+        <column name="open_source" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="1" type="BIT"/>
+        <column name="url" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="100" type="VARCHAR"/>
+        <column name="author_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="project_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="rate" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('rate_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="warehouse_id" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="10" type="INTEGER"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="255" type="VARCHAR"/>
+        <column name="storage" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="255" type="VARCHAR"/>
+        <column name="labor" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="10" type="INTEGER"/>
+        <column name="loading" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="255" type="VARCHAR"/>
+        <column name="unloading" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="255" type="VARCHAR"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="8" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="10" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="12" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="rate_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="warehouse_id" fkName="rate_warehouse_id_fk" pkColumnName="id" pkTableName="warehouse" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="record" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('record_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="data" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="record_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="role" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('role_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="role_name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="role_pkey" nonUnique="false"/>
+        <indexe columnName="role_name" indexName="role_unique_1" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="use_case_1" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id1" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="1" size="29" type="TIMESTAMP"/>
+        <column name="id2" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
+        <column name="dummy" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id1" indexName="use_case_1_pkey" nonUnique="false"/>
+        <indexe columnName="id2" indexName="use_case_1_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id1</primaryKey>
+        <primaryKey>id2</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="use_case_2" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="32" type="VARCHAR"/>
+        <column name="dummy" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="use_case_2_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="use_case_3" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id1" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="1" size="29" type="TIMESTAMP"/>
+        <column name="id2" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
+        <column name="dummy" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id1" indexName="use_case_3_pkey" nonUnique="false"/>
+        <indexe columnName="id2" indexName="use_case_3_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="id2" fkName="fkbsu95vjdy7s1egp0jycwj6ik1" pkColumnName="id" pkTableName="use_case_2" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id1</primaryKey>
+        <primaryKey>id2</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="user" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('user_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="login" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
+        <column name="password" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
+        <column name="phone" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="15" type="CHAR"/>
+        <column name="email" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="100" type="VARCHAR"/>
+        <column name="is_enabled" columnDef="true" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="6" size="1" type="BIT"/>
+        <column name="civility" columnDef="'MR'::bpchar" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="2" type="CHAR"/>
+        <column name="country_code" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="6" type="VARCHAR"/>
+        <column name="first_name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="100" type="VARCHAR"/>
+        <column name="last_name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="100" type="VARCHAR"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="11" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="12" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="13" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="14" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="15" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="user_pkey" nonUnique="false"/>
+        <indexe columnName="login" indexName="user_unique_1" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="user_role" type="TABLE" schemaName="public">
+      <columns>
+        <column name="user_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="role_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="user_id" indexName="user_role_pkey" nonUnique="false"/>
+        <indexe columnName="role_id" indexName="user_role_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="role_id" fkName="user_role_role_id_fk" pkColumnName="id" pkTableName="role" pkTableSchema="public"/>
+        <importedKey fkColumnName="user_id" fkName="user_role_user_id_fk" pkColumnName="id" pkTableName="user" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>user_id</primaryKey>
+        <primaryKey>role_id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="warehouse" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('warehouse_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
+        <column name="rating" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="131089" type="NUMERIC"/>
+        <column name="type" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="50" type="VARCHAR"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="1000" type="VARCHAR"/>
+        <column name="address" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="255" type="VARCHAR"/>
+        <column name="phone1" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="15" type="CHAR"/>
+        <column name="phone2" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="15" type="CHAR"/>
+        <column name="fulfilment_type" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="100" type="VARCHAR"/>
+        <column name="storage_price" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="131089" type="NUMERIC"/>
+        <column name="storage_price_uom" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="50" type="VARCHAR"/>
+        <column name="min_hire_period" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="12" size="20" type="VARCHAR"/>
+        <column name="deposit" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="13" size="131089" type="NUMERIC"/>
+        <column name="deposit_uom" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="14" size="50" type="VARCHAR"/>
+        <column name="facility_size" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="15" size="10" type="INTEGER"/>
+        <column name="facility_size_uom" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="16" size="50" type="VARCHAR"/>
+        <column name="storage_size" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="17" size="10" type="INTEGER"/>
+        <column name="storage_size_uom" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="18" size="50" type="VARCHAR"/>
+        <column name="operating_days" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="19" size="255" type="VARCHAR"/>
+        <column name="operating_hours" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="20" size="255" type="VARCHAR"/>
+        <column name="no_of_receiving_doors" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="21" size="10" type="INTEGER"/>
+        <column name="no_of_shipping_doors" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="22" size="10" type="INTEGER"/>
+        <column name="wms_vendor" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="23" size="255" type="VARCHAR"/>
+        <column name="racking" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="24" size="50" type="VARCHAR"/>
+        <column name="max_storage_height" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="25" size="131089" type="NUMERIC"/>
+        <column name="max_storage_height_uom" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="26" size="50" type="VARCHAR"/>
+        <column name="max_storage_weight" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="27" size="131089" type="NUMERIC"/>
+        <column name="max_storage_weight_uom" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="28" size="50" type="VARCHAR"/>
+        <column name="handling_equipment" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="29" size="255" type="VARCHAR"/>
+        <column name="temperature_range" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="30" size="255" type="VARCHAR"/>
+        <column name="structure_type" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="31" size="255" type="VARCHAR"/>
+        <column name="year_of_construction" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="32" size="10" type="INTEGER"/>
+        <column name="fleet_access" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="33" size="50" type="VARCHAR"/>
+        <column name="power_sanctioned" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="34" size="50" type="VARCHAR"/>
+        <column name="water_connection" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="35" size="50" type="VARCHAR"/>
+        <column name="power_backup" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="36" size="50" type="VARCHAR"/>
+        <column name="crane_services" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="37" size="50" type="VARCHAR"/>
+        <column name="fire_systems" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="38" size="50" type="VARCHAR"/>
+        <column name="security" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="39" size="50" type="VARCHAR"/>
+        <column name="lift" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="40" size="50" type="VARCHAR"/>
+        <column name="toilet" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="41" size="50" type="VARCHAR"/>
+        <column name="parking" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="42" size="50" type="VARCHAR"/>
+        <column name="distance_from_main_road" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="43" size="131089" type="NUMERIC"/>
+        <column name="yard" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="44" size="255" type="VARCHAR"/>
+        <column name="facility_certification" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="45" size="255" type="VARCHAR"/>
+        <column name="faciltiy_insurance" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="46" size="255" type="VARCHAR"/>
+        <column name="import_export" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="47" size="255" type="VARCHAR"/>
+        <column name="inbound_services" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="48" size="255" type="VARCHAR"/>
+        <column name="outbound_services" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="49" size="255" type="VARCHAR"/>
+        <column name="value_added_services" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="50" size="255" type="VARCHAR"/>
+        <column name="labor_services" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="51" size="255" type="VARCHAR"/>
+        <column name="total_labor" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="52" size="131089" type="NUMERIC"/>
+        <column name="distribution_services" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="53" size="255" type="VARCHAR"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="54" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="55" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="56" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="57" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="58" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="warehouse_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys/>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="warehouse_goods" type="TABLE" schemaName="public">
+      <columns>
+        <column name="warehouse_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="type_of_goods_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="3" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="5" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="warehouse_id" indexName="warehouse_goods_pkey" nonUnique="false"/>
+        <indexe columnName="type_of_goods_id" indexName="warehouse_goods_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="type_of_goods_id" fkName="warehouse_goods_type_of_goods_id_fk" pkColumnName="type_of_goods_id" pkTableName="goods" pkTableSchema="public"/>
+        <importedKey fkColumnName="warehouse_id" fkName="warehouse_goods_warehouse_id_fk" pkColumnName="id" pkTableName="warehouse" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>warehouse_id</primaryKey>
+        <primaryKey>type_of_goods_id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="warehouse_photo" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('warehouse_photo_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="warehouse_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+        <column name="name" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="255" type="VARCHAR"/>
+        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="255" type="VARCHAR"/>
+        <column name="link" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="255" type="VARCHAR"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="6" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="8" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="warehouse_photo_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="warehouse_id" fkName="enquiry_warehouse_id_fk" pkColumnName="id" pkTableName="warehouse" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="warehouse_review" type="TABLE" schemaName="public">
+      <columns>
+        <column name="id" columnDef="nextval('warehouse_review_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="user_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+        <column name="overall_rating" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="131089" type="NUMERIC"/>
+        <column name="turnaround_time" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="131089" type="NUMERIC"/>
+        <column name="responsiveness" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="5" size="255" type="VARCHAR"/>
+        <column name="comments" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="255" type="VARCHAR"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="7" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="8" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="9" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="id" indexName="warehouse_review_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="user_id" fkName="warehouse_review_user_id_fk" pkColumnName="id" pkTableName="user" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>id</primaryKey>
+      </primaryKeys>
+    </table>
+    <table name="warehouse_service_provider" type="TABLE" schemaName="public">
+      <columns>
+        <column name="warehouse_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
+        <column name="user_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="10" type="INTEGER"/>
+        <column name="creation_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="3" size="29" type="TIMESTAMP"/>
+        <column name="creation_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="200" type="VARCHAR"/>
+        <column name="last_modification_date" columnDef="CURRENT_TIMESTAMP" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="5" size="29" type="TIMESTAMP"/>
+        <column name="last_modification_author" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="200" type="VARCHAR"/>
+        <column name="version" columnDef="0" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="7" size="10" type="INTEGER"/>
+      </columns>
+      <indexes>
+        <indexe columnName="warehouse_id" indexName="warehouse_service_provider_pkey" nonUnique="false"/>
+        <indexe columnName="user_id" indexName="warehouse_service_provider_pkey" nonUnique="false"/>
+      </indexes>
+      <importedKeys>
+        <importedKey fkColumnName="user_id" fkName="warehouse_service_provider_user_id_fk" pkColumnName="id" pkTableName="user" pkTableSchema="public"/>
+        <importedKey fkColumnName="warehouse_id" fkName="warehouse_service_provider_warehouse_id_fk" pkColumnName="id" pkTableName="warehouse" pkTableSchema="public"/>
+      </importedKeys>
+      <primaryKeys>
+        <primaryKey>warehouse_id</primaryKey>
+        <primaryKey>user_id</primaryKey>
+      </primaryKeys>
+    </table>
+  </tables>
+</metadata>

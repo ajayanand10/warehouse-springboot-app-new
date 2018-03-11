@@ -1,0 +1,40 @@
+    <mat-card *ngIf="warehouseGoods" ngForm #warehouseGoodsForm="ngForm">
+        <mat-card-title>WarehouseGoods Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+            <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="warehouse" class="required">Warehouse</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <warehouse-auto-complete [(ngModel)]="warehouseGoods.warehouse" id="warehouse" name="warehouse" [disabled]="sub"></warehouse-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoWarehouse" type="button" (click)="gotoWarehouse()" *ngIf="!sub && warehouseGoods.warehouse" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearWarehouse" type="button" (click)="clearWarehouse()" *ngIf="!sub && warehouseGoods.warehouse" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="typeOfGoods" class="required">Type Of Goods</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <goods-auto-complete [(ngModel)]="warehouseGoods.typeOfGoods" id="typeOfGoods" name="typeOfGoods" [disabled]="sub"></goods-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoTypeOfGoods" type="button" (click)="gotoTypeOfGoods()" *ngIf="!sub && warehouseGoods.typeOfGoods" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearTypeOfGoods" type="button" (click)="clearTypeOfGoods()" *ngIf="!sub && warehouseGoods.typeOfGoods" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+           </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!warehouseGoodsForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

@@ -1,0 +1,40 @@
+    <mat-card *ngIf="warehouseServiceProvider" ngForm #warehouseServiceProviderForm="ngForm">
+        <mat-card-title>WarehouseServiceProvider Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+            <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="warehouse" class="required">Warehouse</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <warehouse-auto-complete [(ngModel)]="warehouseServiceProvider.warehouse" id="warehouse" name="warehouse" [disabled]="sub"></warehouse-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoWarehouse" type="button" (click)="gotoWarehouse()" *ngIf="!sub && warehouseServiceProvider.warehouse" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearWarehouse" type="button" (click)="clearWarehouse()" *ngIf="!sub && warehouseServiceProvider.warehouse" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="user" class="required">User</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <user-auto-complete [(ngModel)]="warehouseServiceProvider.user" id="user" name="user" [disabled]="sub"></user-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoUser" type="button" (click)="gotoUser()" *ngIf="!sub && warehouseServiceProvider.user" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearUser" type="button" (click)="clearUser()" *ngIf="!sub && warehouseServiceProvider.user" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+           </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!warehouseServiceProviderForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

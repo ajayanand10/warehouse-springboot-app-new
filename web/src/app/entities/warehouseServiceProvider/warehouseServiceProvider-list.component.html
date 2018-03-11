@@ -1,0 +1,57 @@
+<div class="ContentSideSections Implementation">
+    <mat-card *ngIf="!sub">
+        <mat-card-title>Search WarehouseServiceProvider with search criterias</mat-card-title>
+        <mat-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" ngForm #warehouseServiceProviderForm="ngForm">
+<div class="ui-grid-row">
+    <div class="ui-grid-col-2">
+        <label for="warehouse">Warehouse</label>
+    </div>
+    <div class="ui-grid-col-6">
+        <warehouse-auto-complete [(ngModel)]="example.warehouse" id="warehouse" name="warehouse"></warehouse-auto-complete>
+    </div>
+</div>
+<div class="ui-grid-row">
+    <div class="ui-grid-col-2">
+        <label for="user">User</label>
+    </div>
+    <div class="ui-grid-col-6">
+        <user-auto-complete [(ngModel)]="example.user" id="user" name="user"></user-auto-complete>
+    </div>
+</div>
+        </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="search(dt)"><mat-icon>search</mat-icon>Search</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <br/>
+    <mat-card>
+    <mat-card-content>
+    <p>The list of results below is server-side paginated...</p>
+
+    <p-dataTable #dt [value]="currentPage.content"
+                 [lazy]="true"
+                 [rows]="10"
+                 [paginator]="currentPage.totalElements > 10"
+                 [totalRecords]="currentPage.totalElements"
+                 (onLazyLoad)="loadPage($event)"
+                 selectionMode="single"
+                 (onRowSelect)="onRowSelect($event)"
+                 [rowsPerPageOptions]="[5,10,20,50,100]"
+                 [responsive]="true">
+        <p-header>{{header}} (count: {{currentPage.totalElements}})</p-header>
+        <p-column styleClass="col-icon">
+            <ng-template let-warehouseServiceProvider="rowData" pTemplate="body">
+                <button type="button" pButton icon="fa-trash" (click)="showDeleteDialog(warehouseServiceProvider)" style="float:left"></button>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="addNew()"><mat-icon>add</mat-icon>Add</button>
+    </mat-card-actions>
+    </mat-card>
+</div>

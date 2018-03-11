@@ -1,0 +1,12 @@
+    <mat-card *ngIf="guest" ngForm #guestForm="ngForm">
+        <mat-card-title>Guest Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+           </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!guestForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

@@ -1,0 +1,373 @@
+<div class="ContentSideSections Implementation">
+    <mat-card *ngIf="!sub">
+        <mat-card-title>Search Warehouse with search criterias</mat-card-title>
+        <mat-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" ngForm #warehouseForm="ngForm">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="name">Name</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="name" [(ngModel)]="example.name" name="name" #name="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="type">Type</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="type" [(ngModel)]="example.type" name="type" #type="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="description">Description</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="description" [(ngModel)]="example.description" name="description" #description="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="address">Address</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="address" [(ngModel)]="example.address" name="address" #address="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="phone1">Phone1</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="phone1" [(ngModel)]="example.phone1" name="phone1" #phone1="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="phone2">Phone2</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="phone2" [(ngModel)]="example.phone2" name="phone2" #phone2="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="fulfilmentType">Fulfilment Type</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="fulfilmentType" [(ngModel)]="example.fulfilmentType" name="fulfilmentType" #fulfilmentType="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="storagePriceUom">Storage Price Uom</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="storagePriceUom" [(ngModel)]="example.storagePriceUom" name="storagePriceUom" #storagePriceUom="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="minHirePeriod">Min Hire Period</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="minHirePeriod" [(ngModel)]="example.minHirePeriod" name="minHirePeriod" #minHirePeriod="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="depositUom">Deposit Uom</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="depositUom" [(ngModel)]="example.depositUom" name="depositUom" #depositUom="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="facilitySizeUom">Facility Size Uom</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="facilitySizeUom" [(ngModel)]="example.facilitySizeUom" name="facilitySizeUom" #facilitySizeUom="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="storageSizeUom">Storage Size Uom</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="storageSizeUom" [(ngModel)]="example.storageSizeUom" name="storageSizeUom" #storageSizeUom="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="operatingDays">Operating Days</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="operatingDays" [(ngModel)]="example.operatingDays" name="operatingDays" #operatingDays="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="operatingHours">Operating Hours</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="operatingHours" [(ngModel)]="example.operatingHours" name="operatingHours" #operatingHours="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="wmsVendor">Wms Vendor</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="wmsVendor" [(ngModel)]="example.wmsVendor" name="wmsVendor" #wmsVendor="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="racking">Racking</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="racking" [(ngModel)]="example.racking" name="racking" #racking="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="maxStorageHeightUom">Max Storage Height Uom</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="maxStorageHeightUom" [(ngModel)]="example.maxStorageHeightUom" name="maxStorageHeightUom" #maxStorageHeightUom="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="maxStorageWeightUom">Max Storage Weight Uom</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="maxStorageWeightUom" [(ngModel)]="example.maxStorageWeightUom" name="maxStorageWeightUom" #maxStorageWeightUom="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="handlingEquipment">Handling Equipment</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="handlingEquipment" [(ngModel)]="example.handlingEquipment" name="handlingEquipment" #handlingEquipment="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="temperatureRange">Temperature Range</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="temperatureRange" [(ngModel)]="example.temperatureRange" name="temperatureRange" #temperatureRange="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="structureType">Structure Type</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="structureType" [(ngModel)]="example.structureType" name="structureType" #structureType="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="fleetAccess">Fleet Access</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="fleetAccess" [(ngModel)]="example.fleetAccess" name="fleetAccess" #fleetAccess="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="powerSanctioned">Power Sanctioned</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="powerSanctioned" [(ngModel)]="example.powerSanctioned" name="powerSanctioned" #powerSanctioned="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="waterConnection">Water Connection</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="waterConnection" [(ngModel)]="example.waterConnection" name="waterConnection" #waterConnection="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="powerBackup">Power Backup</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="powerBackup" [(ngModel)]="example.powerBackup" name="powerBackup" #powerBackup="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="craneServices">Crane Services</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="craneServices" [(ngModel)]="example.craneServices" name="craneServices" #craneServices="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="fireSystems">Fire Systems</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="fireSystems" [(ngModel)]="example.fireSystems" name="fireSystems" #fireSystems="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="security">Security</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="security" [(ngModel)]="example.security" name="security" #security="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="lift">Lift</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="lift" [(ngModel)]="example.lift" name="lift" #lift="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="toilet">Toilet</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="toilet" [(ngModel)]="example.toilet" name="toilet" #toilet="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="parking">Parking</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="parking" [(ngModel)]="example.parking" name="parking" #parking="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="yard">Yard</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="yard" [(ngModel)]="example.yard" name="yard" #yard="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="facilityCertification">Facility Certification</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="facilityCertification" [(ngModel)]="example.facilityCertification" name="facilityCertification" #facilityCertification="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="faciltiyInsurance">Faciltiy Insurance</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="faciltiyInsurance" [(ngModel)]="example.faciltiyInsurance" name="faciltiyInsurance" #faciltiyInsurance="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="importExport">Import Export</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="importExport" [(ngModel)]="example.importExport" name="importExport" #importExport="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="inboundServices">Inbound Services</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="inboundServices" [(ngModel)]="example.inboundServices" name="inboundServices" #inboundServices="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="outboundServices">Outbound Services</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="outboundServices" [(ngModel)]="example.outboundServices" name="outboundServices" #outboundServices="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="valueAddedServices">Value Added Services</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="valueAddedServices" [(ngModel)]="example.valueAddedServices" name="valueAddedServices" #valueAddedServices="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="laborServices">Labor Services</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="laborServices" [(ngModel)]="example.laborServices" name="laborServices" #laborServices="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="distributionServices">Distribution Services</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="distributionServices" [(ngModel)]="example.distributionServices" name="distributionServices" #distributionServices="ngModel"/>
+                </div>
+            </div>
+        </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="search(dt)"><mat-icon>search</mat-icon>Search</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <br/>
+    <mat-card>
+    <mat-card-content>
+    <p>The list of results below is server-side paginated...</p>
+
+    <p-dataTable #dt [value]="currentPage.content"
+                 [lazy]="true"
+                 [rows]="10"
+                 [paginator]="currentPage.totalElements > 10"
+                 [totalRecords]="currentPage.totalElements"
+                 (onLazyLoad)="loadPage($event)"
+                 selectionMode="single"
+                 (onRowSelect)="onRowSelect($event)"
+                 [rowsPerPageOptions]="[5,10,20,50,100]"
+                 [responsive]="true">
+        <p-header>{{header}} (count: {{currentPage.totalElements}})</p-header>
+        <p-column field="name" header="Name" sortable="true">
+        </p-column>
+        <p-column field="rating" header="Rating" sortable="true">
+        </p-column>
+        <p-column field="type" header="Type" sortable="true">
+        </p-column>
+        <p-column field="description" header="Description" sortable="true">
+        </p-column>
+        <p-column field="address" header="Address" sortable="true">
+        </p-column>
+        <p-column field="phone1" header="Phone1" sortable="true">
+        </p-column>
+        <p-column styleClass="col-icon">
+            <ng-template let-warehouse="rowData" pTemplate="body">
+                <button type="button" pButton icon="fa-trash" (click)="showDeleteDialog(warehouse)" style="float:left"></button>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="addNew()"><mat-icon>add</mat-icon>Add</button>
+    </mat-card-actions>
+    </mat-card>
+</div>

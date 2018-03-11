@@ -1,0 +1,22 @@
+    <mat-card *ngIf="role" ngForm #roleForm="ngForm">
+        <mat-card-title>Role Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="roleName"  class="required">Role Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="roleName" type="text" [(ngModel)]="role.roleName"  required   name="roleName" #roleName="ngModel"/>
+                    
+                    <mat-error *ngIf="!roleName.valid && roleName.dirty && roleName.errors['required']">
+                        Role Name is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!roleForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

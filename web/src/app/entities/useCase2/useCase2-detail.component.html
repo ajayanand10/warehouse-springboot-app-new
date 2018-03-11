@@ -1,0 +1,22 @@
+    <mat-card *ngIf="useCase2" ngForm #useCase2Form="ngForm">
+        <mat-card-title>UseCase2 Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="dummy"  class="required">Dummy</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="dummy" type="text" [(ngModel)]="useCase2.dummy"  required   name="dummy" #dummy="ngModel"/>
+                    
+                    <mat-error *ngIf="!dummy.valid && dummy.dirty && dummy.errors['required']">
+                        Dummy is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!useCase2Form.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

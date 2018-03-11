@@ -1,0 +1,40 @@
+    <mat-card *ngIf="passport" ngForm #passportForm="ngForm">
+        <mat-card-title>Passport Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="expirationDate" >Expiration Date</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container>
+                  <input matInput id="expirationDate" [matDatepicker]="expirationDatePicker" [(ngModel)]="passport.expirationDate"  name="expirationDate" #expirationDate="ngModel">
+                  <mat-datepicker-toggle matSuffix [for]="expirationDatePicker"></mat-datepicker-toggle>
+                </mat-input-container>
+                <mat-datepicker #expirationDatePicker></mat-datepicker>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="passportNumber"  class="required">Passport Number</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="passportNumber" type="text" [(ngModel)]="passport.passportNumber"  required   name="passportNumber" #passportNumber="ngModel"/>
+                    
+                    <mat-error *ngIf="!passportNumber.valid && passportNumber.dirty && passportNumber.errors['required']">
+                        Passport Number is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="holderId"  class="required">Holder Id</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="holderId" type="number" [(ngModel)]="passport.holderId"  required  name="holderId" #holderId="ngModel" />
+                    
+                    <mat-error *ngIf="!holderId.valid && holderId.dirty && holderId.errors['required']">
+                        Holder Id is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!passportForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

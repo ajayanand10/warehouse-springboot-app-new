@@ -1,0 +1,40 @@
+    <mat-card *ngIf="goods" ngForm #goodsForm="ngForm">
+        <mat-card-title>Goods Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="name" >Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="name" [(ngModel)]="goods.name"   autoResize="true" name="name" #name="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="description" >Description</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="description" [(ngModel)]="goods.description"   autoResize="true" name="description" #description="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+           </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!goodsForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+    <br/>
+    <mat-card *ngIf="goods && goods.id">
+    <mat-card-subtitle>Goods db relations</mat-card-subtitle>
+    <mat-card-content>
+    <mat-tab-group>
+        <mat-tab label="TheWarehouses">
+            <p-pickList [source]="sourceTheWarehouses" [target]="goods.theWarehouses" sourceHeader="Available" targetHeader="Selected" [responsive]="true">
+                <ng-template let-aWarehouse pTemplate="item">
+{{ aWarehouse.name }}                 </ng-template>
+            </p-pickList>
+        </mat-tab>
+
+    </mat-tab-group>
+    </mat-card-content>
+    </mat-card>

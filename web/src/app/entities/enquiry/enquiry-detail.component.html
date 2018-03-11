@@ -1,0 +1,47 @@
+    <mat-card *ngIf="enquiry" ngForm #enquiryForm="ngForm">
+        <mat-card-title>Enquiry Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="user">User</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <user-auto-complete [(ngModel)]="enquiry.user" id="user" name="user" [disabled]="sub"></user-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoUser" type="button" (click)="gotoUser()" *ngIf="!sub && enquiry.user" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearUser" type="button" (click)="clearUser()" *ngIf="!sub && enquiry.user" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+             <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="warehouse">Warehouse</label></div>
+            <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <div class="ui-g">
+                <div class="ui-g-12 ui-md-5 ui-lg-5">
+                    <warehouse-auto-complete [(ngModel)]="enquiry.warehouse" id="warehouse" name="warehouse" [disabled]="sub"></warehouse-auto-complete>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="gotoWarehouse" type="button" (click)="gotoWarehouse()" *ngIf="!sub && enquiry.warehouse" icon="fa-pencil" label="Edit"></button>
+                </div>
+                <div class="ui-g-12 ui-md-2 ui-lg-2">
+                    <button pButton id="clearWarehouse" type="button" (click)="clearWarehouse()" *ngIf="!sub && enquiry.warehouse" icon="fa-chain-broken" label="Clear"></button>
+                </div>
+                </div>
+            </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="description" >Description</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="description" [(ngModel)]="enquiry.description"   autoResize="true" name="description" #description="ngModel"></textarea>
+                    
+                </mat-input-container>
+                </div>
+           </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!enquiryForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

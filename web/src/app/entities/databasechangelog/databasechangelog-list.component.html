@@ -1,0 +1,141 @@
+<div class="ContentSideSections Implementation">
+    <mat-card *ngIf="!sub">
+        <mat-card-title>Search Databasechangelog with search criterias</mat-card-title>
+        <mat-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" ngForm #databasechangelogForm="ngForm">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="id">Id</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="id" [(ngModel)]="example.id" name="id" #id="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="author">Author</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="author" [(ngModel)]="example.author" name="author" #author="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="comments">Comments</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="comments" [(ngModel)]="example.comments" name="comments" #comments="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="contexts">Contexts</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="contexts" [(ngModel)]="example.contexts" name="contexts" #contexts="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="description">Description</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="description" [(ngModel)]="example.description" name="description" #description="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="exectype">Exectype</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="exectype" [(ngModel)]="example.exectype" name="exectype" #exectype="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="filename">Filename</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="filename" [(ngModel)]="example.filename" name="filename" #filename="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="labels">Labels</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="labels" [(ngModel)]="example.labels" name="labels" #labels="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="liquibase">Liquibase</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="liquibase" [(ngModel)]="example.liquibase" name="liquibase" #liquibase="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="md5sum">Md5sum</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="md5sum" [(ngModel)]="example.md5sum" name="md5sum" #md5sum="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="tag">Tag</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="tag" [(ngModel)]="example.tag" name="tag" #tag="ngModel"/>
+                </div>
+            </div>
+        </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="search(dt)"><mat-icon>search</mat-icon>Search</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <br/>
+    <mat-card>
+    <mat-card-content>
+    <p>The list of results below is server-side paginated...</p>
+
+    <p-dataTable #dt [value]="currentPage.content"
+                 [lazy]="true"
+                 [rows]="10"
+                 [paginator]="currentPage.totalElements > 10"
+                 [totalRecords]="currentPage.totalElements"
+                 (onLazyLoad)="loadPage($event)"
+                 selectionMode="single"
+                 (onRowSelect)="onRowSelect($event)"
+                 [rowsPerPageOptions]="[5,10,20,50,100]"
+                 [responsive]="true">
+        <p-header>{{header}} (count: {{currentPage.totalElements}})</p-header>
+        <p-column field="id" header="Id" sortable="true">
+        </p-column>
+        <p-column field="author" header="Author" sortable="true">
+        </p-column>
+        <p-column field="comments" header="Comments" sortable="true">
+        </p-column>
+        <p-column field="contexts" header="Contexts" sortable="true">
+        </p-column>
+        <p-column field="dateexecuted" header="Dateexecuted" sortable="true">
+        </p-column>
+        <p-column field="description" header="Description" sortable="true">
+        </p-column>
+        <p-column styleClass="col-icon">
+            <ng-template let-databasechangelog="rowData" pTemplate="body">
+                <button type="button" pButton icon="fa-trash" (click)="showDeleteDialog(databasechangelog)" style="float:left"></button>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="addNew()"><mat-icon>add</mat-icon>Add</button>
+    </mat-card-actions>
+    </mat-card>
+</div>

@@ -1,0 +1,46 @@
+    <mat-card *ngIf="project" ngForm #projectForm="ngForm">
+        <mat-card-title>Project Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="name"  class="required">Name</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="name" type="text" [(ngModel)]="project.name"  required   name="name" #name="ngModel"/>
+                    
+                    <mat-error *ngIf="!name.valid && name.dirty && name.errors['required']">
+                        Name is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="openSource" >Open Source</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <p-triStateCheckbox [(ngModel)]="project.openSource" name="openSource"></p-triStateCheckbox>{{project.openSource}}
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="url" >Url</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="url" type="url" pattern="^http.*" [(ngModel)]="project.url"   name="url" #url="ngModel"/>
+                    
+                    <mat-error *ngIf="!url.valid && url.dirty && url.errors['pattern']">
+                        Url is invalid. Expecting a valid URL.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="authorId"  class="required">Author Id</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <input matInput id="authorId" type="number" [(ngModel)]="project.authorId"  required  name="authorId" #authorId="ngModel" />
+                    
+                    <mat-error *ngIf="!authorId.valid && authorId.dirty && authorId.errors['required']">
+                        Author Id is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!projectForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+

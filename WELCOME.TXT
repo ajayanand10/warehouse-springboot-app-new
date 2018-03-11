@@ -1,0 +1,146 @@
+This is a sample 'per project' template.
+
+Templates doc: http://www.jaxio.com/documentation/celerio/templates.html
+
+Here is a simple script:
+
+    ${entity.model.type}: Bookmark
+    ${entity.model.var}: bookmark
+    ${entity.model.getter}: getBookmark
+    ${entity.service.type}: BookmarkService
+    ${entity.service.var}: bookmarkService
+    ${entity.service.getter}: getBookmarkService
+
+    ${entity.model.type}: Databasechangelog
+    ${entity.model.var}: databasechangelog
+    ${entity.model.getter}: getDatabasechangelog
+    ${entity.service.type}: DatabasechangelogService
+    ${entity.service.var}: databasechangelogService
+    ${entity.service.getter}: getDatabasechangelogService
+
+    ${entity.model.type}: Databasechangeloglock
+    ${entity.model.var}: databasechangeloglock
+    ${entity.model.getter}: getDatabasechangeloglock
+    ${entity.service.type}: DatabasechangeloglockService
+    ${entity.service.var}: databasechangeloglockService
+    ${entity.service.getter}: getDatabasechangeloglockService
+
+    ${entity.model.type}: Enquiry
+    ${entity.model.var}: enquiry
+    ${entity.model.getter}: getEnquiry
+    ${entity.service.type}: EnquiryService
+    ${entity.service.var}: enquiryService
+    ${entity.service.getter}: getEnquiryService
+
+    ${entity.model.type}: Goods
+    ${entity.model.var}: goods
+    ${entity.model.getter}: getGoods
+    ${entity.service.type}: GoodsService
+    ${entity.service.var}: goodsService
+    ${entity.service.getter}: getGoodsService
+
+    ${entity.model.type}: Guest
+    ${entity.model.var}: guest
+    ${entity.model.getter}: getGuest
+    ${entity.service.type}: GuestService
+    ${entity.service.var}: guestService
+    ${entity.service.getter}: getGuestService
+
+    ${entity.model.type}: Order
+    ${entity.model.var}: order
+    ${entity.model.getter}: getOrder
+    ${entity.service.type}: OrderService
+    ${entity.service.var}: orderService
+    ${entity.service.getter}: getOrderService
+
+    ${entity.model.type}: Passport
+    ${entity.model.var}: passport
+    ${entity.model.getter}: getPassport
+    ${entity.service.type}: PassportService
+    ${entity.service.var}: passportService
+    ${entity.service.getter}: getPassportService
+
+    ${entity.model.type}: Project
+    ${entity.model.var}: project
+    ${entity.model.getter}: getProject
+    ${entity.service.type}: ProjectService
+    ${entity.service.var}: projectService
+    ${entity.service.getter}: getProjectService
+
+    ${entity.model.type}: Rate
+    ${entity.model.var}: rate
+    ${entity.model.getter}: getRate
+    ${entity.service.type}: RateService
+    ${entity.service.var}: rateService
+    ${entity.service.getter}: getRateService
+
+    ${entity.model.type}: Record
+    ${entity.model.var}: record
+    ${entity.model.getter}: getRecord
+    ${entity.service.type}: RecordService
+    ${entity.service.var}: recordService
+    ${entity.service.getter}: getRecordService
+
+    ${entity.model.type}: Role
+    ${entity.model.var}: role
+    ${entity.model.getter}: getRole
+    ${entity.service.type}: RoleService
+    ${entity.service.var}: roleService
+    ${entity.service.getter}: getRoleService
+
+    ${entity.model.type}: UseCase1
+    ${entity.model.var}: useCase1
+    ${entity.model.getter}: getUseCase1
+    ${entity.service.type}: UseCase1Service
+    ${entity.service.var}: useCase1Service
+    ${entity.service.getter}: getUseCase1Service
+
+    ${entity.model.type}: UseCase2
+    ${entity.model.var}: useCase2
+    ${entity.model.getter}: getUseCase2
+    ${entity.service.type}: UseCase2Service
+    ${entity.service.var}: useCase2Service
+    ${entity.service.getter}: getUseCase2Service
+
+    ${entity.model.type}: UseCase3
+    ${entity.model.var}: useCase3
+    ${entity.model.getter}: getUseCase3
+    ${entity.service.type}: UseCase3Service
+    ${entity.service.var}: useCase3Service
+    ${entity.service.getter}: getUseCase3Service
+
+    ${entity.model.type}: User
+    ${entity.model.var}: user
+    ${entity.model.getter}: getUser
+    ${entity.service.type}: UserService
+    ${entity.service.var}: userService
+    ${entity.service.getter}: getUserService
+
+    ${entity.model.type}: Warehouse
+    ${entity.model.var}: warehouse
+    ${entity.model.getter}: getWarehouse
+    ${entity.service.type}: WarehouseService
+    ${entity.service.var}: warehouseService
+    ${entity.service.getter}: getWarehouseService
+
+    ${entity.model.type}: WarehousePhoto
+    ${entity.model.var}: warehousePhoto
+    ${entity.model.getter}: getWarehousePhoto
+    ${entity.service.type}: WarehousePhotoService
+    ${entity.service.var}: warehousePhotoService
+    ${entity.service.getter}: getWarehousePhotoService
+
+    ${entity.model.type}: WarehouseReview
+    ${entity.model.var}: warehouseReview
+    ${entity.model.getter}: getWarehouseReview
+    ${entity.service.type}: WarehouseReviewService
+    ${entity.service.var}: warehouseReviewService
+    ${entity.service.getter}: getWarehouseReviewService
+
+    ${entity.model.type}: WarehouseServiceProvider
+    ${entity.model.var}: warehouseServiceProvider
+    ${entity.model.getter}: getWarehouseServiceProvider
+    ${entity.service.type}: WarehouseServiceProviderService
+    ${entity.service.var}: warehouseServiceProviderService
+    ${entity.service.getter}: getWarehouseServiceProviderService
+

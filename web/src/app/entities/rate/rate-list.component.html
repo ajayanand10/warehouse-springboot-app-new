@@ -1,0 +1,91 @@
+<div class="ContentSideSections Implementation">
+    <mat-card *ngIf="!sub">
+        <mat-card-title>Search Rate with search criterias</mat-card-title>
+        <mat-card-content>
+        <div class="ui-grid ui-grid-responsive ui-fluid ui-grid-pad" ngForm #rateForm="ngForm">
+<div class="ui-grid-row">
+    <div class="ui-grid-col-2">
+        <label for="warehouse">Warehouse</label>
+    </div>
+    <div class="ui-grid-col-6">
+        <warehouse-auto-complete [(ngModel)]="example.warehouse" id="warehouse" name="warehouse"></warehouse-auto-complete>
+    </div>
+</div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="description">Description</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="description" [(ngModel)]="example.description" name="description" #description="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="storage">Storage</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="storage" [(ngModel)]="example.storage" name="storage" #storage="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="loading">Loading</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="loading" [(ngModel)]="example.loading" name="loading" #loading="ngModel"/>
+                </div>
+            </div>
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-2">
+                    <label for="unloading">Unloading</label>
+                </div>
+                <div class="ui-grid-col-6">
+                    <input pInputText id="unloading" [(ngModel)]="example.unloading" name="unloading" #unloading="ngModel"/>
+                </div>
+            </div>
+        </div>
+
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="search(dt)"><mat-icon>search</mat-icon>Search</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <br/>
+    <mat-card>
+    <mat-card-content>
+    <p>The list of results below is server-side paginated...</p>
+
+    <p-dataTable #dt [value]="currentPage.content"
+                 [lazy]="true"
+                 [rows]="10"
+                 [paginator]="currentPage.totalElements > 10"
+                 [totalRecords]="currentPage.totalElements"
+                 (onLazyLoad)="loadPage($event)"
+                 selectionMode="single"
+                 (onRowSelect)="onRowSelect($event)"
+                 [rowsPerPageOptions]="[5,10,20,50,100]"
+                 [responsive]="true">
+        <p-header>{{header}} (count: {{currentPage.totalElements}})</p-header>
+        <p-column field="description" header="Description" sortable="true">
+        </p-column>
+        <p-column field="storage" header="Storage" sortable="true">
+        </p-column>
+        <p-column field="labor" header="Labor" sortable="true">
+        </p-column>
+        <p-column field="loading" header="Loading" sortable="true">
+        </p-column>
+        <p-column field="unloading" header="Unloading" sortable="true">
+        </p-column>
+        <p-column styleClass="col-icon">
+            <ng-template let-rate="rowData" pTemplate="body">
+                <button type="button" pButton icon="fa-trash" (click)="showDeleteDialog(rate)" style="float:left"></button>
+            </ng-template>
+        </p-column>
+    </p-dataTable>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="addNew()"><mat-icon>add</mat-icon>Add</button>
+    </mat-card-actions>
+    </mat-card>
+</div>

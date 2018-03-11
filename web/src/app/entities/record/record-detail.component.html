@@ -1,0 +1,22 @@
+    <mat-card *ngIf="record" ngForm #recordForm="ngForm">
+        <mat-card-title>Record Details</mat-card-title>
+        <mat-card-content>
+        <div class="ui-g alignlabels">
+                 <div class="ui-g-12 ui-md-2 ui-lg-1"><label for="data"  class="required">Data</label></div>
+                <div class="ui-g-12 ui-md-10 ui-lg-5">
+                <mat-input-container style="width: 90%">
+                    <textarea matInput id="data" [(ngModel)]="record.data"  required   autoResize="true" name="data" #data="ngModel"></textarea>
+                    
+                    <mat-error *ngIf="!data.valid && data.dirty && data.errors['required']">
+                        Data is required.
+                    </mat-error>
+                </mat-input-container>
+                </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button *ngIf="sub" (click)="onCancel()"><mat-icon>cancel</mat-icon>Cancel</button>
+            <button mat-raised-button (click)="onSave()" [disabled]="!recordForm.form.valid"><mat-icon>save</mat-icon>Save</button>
+        </mat-card-actions>
+    </mat-card>
+
