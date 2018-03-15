@@ -42,4 +42,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
         Page<User> page = findAll(Example.of(probe, matcher), new PageRequest(0, maxResults));
         return page.getContent();
     }
+    
+    //added by Ajay
+    User findByEmail(String email);
+//    User findByConfirmationToken(String confirmationToken);
 }

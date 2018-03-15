@@ -27,6 +27,7 @@ public class UserDTO {
     public String phone;
     public String email;
     public Boolean isEnabled;
+    public String confirmationToken;
     public Civility civility;
     public CountryCode countryCode;
     public String firstName;
@@ -35,7 +36,7 @@ public class UserDTO {
     public String creationAuthor;
     public Instant lastModificationDate;
     public String lastModificationAuthor;
-    public Integer version;;
+    public Integer version;
     public List<RoleDTO> roles;
 
     @JsonIgnore

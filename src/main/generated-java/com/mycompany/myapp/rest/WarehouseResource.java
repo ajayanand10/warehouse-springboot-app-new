@@ -34,6 +34,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.mycompany.myapp.domain.Warehouse;
 import com.mycompany.myapp.dto.WarehouseDTO;
 import com.mycompany.myapp.dto.WarehouseDTOService;
+import com.mycompany.myapp.dto.WarehouseSearchDTO;
 import com.mycompany.myapp.dto.support.PageRequestByExample;
 import com.mycompany.myapp.dto.support.PageResponse;
 import com.mycompany.myapp.repository.WarehouseRepository;
@@ -131,5 +132,14 @@ public class WarehouseResource {
             // todo: dig exception, most likely org.hibernate.exception.ConstraintViolationException
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
+    }
+    
+    /**
+     * Find a Page of Warehouses using search query by Specifications.
+     */
+    @RequestMapping(value = "/search", method = POST, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<PageResponse<WarehouseDTO>> findAllBySearch(@RequestBody PageRequestByExample<WarehouseSearchDTO> prbe) throws URISyntaxException {
+        PageResponse<WarehouseDTO> pageResponse = warehouseDTOService.findAllBySearch(prbe);
+        return new ResponseEntity<>(pageResponse, new HttpHeaders(), HttpStatus.OK);
     }
 }

@@ -38,7 +38,12 @@ spring:
             hibernate.generate_statistics: false
 
     mail:
-        host: localhost
+        host: smtp.mailhost.com
+        username: mailUser
+        password: mailPass
+        port: 587
+
+
 
     messages:
         cache-seconds: 1

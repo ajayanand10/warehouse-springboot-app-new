@@ -16,12 +16,15 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.*;
 
 import com.mycompany.myapp.domain.Warehouse;
 import com.mycompany.myapp.domain.Warehouse_;
+import com.mycompany.myapp.domain.WarehouseSearch;
 
-public interface WarehouseRepository extends JpaRepository<Warehouse, Integer> {
+public interface WarehouseRepository extends JpaRepository<Warehouse, Integer>, JpaSpecificationExecutor<Warehouse> {
+	final String SEARCH_QUERY = "select w.id, w.name, w.type, w.rating, w.storageSize, w.storageSizeUom, w.storagePrice, w.storagePriceUom  from Warehouse w";
 
     default List<Warehouse> complete(String query, int maxResults) {
         Warehouse probe = new Warehouse();
@@ -33,6 +36,13 @@ public interface WarehouseRepository extends JpaRepository<Warehouse, Integer> {
         Page<Warehouse> page = findAll(Example.of(probe, matcher), new PageRequest(0, maxResults));
         return page.getContent();
     }
+    
+    
+    @Query(SEARCH_QUERY)
+    Page<Warehouse> findSome(Example<Warehouse> example, Pageable pageable);
+    
+    @Query(SEARCH_QUERY)
+    Page<Warehouse> findSome(Pageable pageable);
     
     
 }

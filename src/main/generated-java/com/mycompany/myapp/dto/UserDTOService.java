@@ -224,4 +224,14 @@ public class UserDTOService {
 
         return user;
     }
+    
+    //added by Ajay
+    public User findByEmail(String email) {
+		return userRepository.findByEmail(email);
+	}
+	
+    //added by Ajay
+	/*public User findByConfirmationToken(String confirmationToken) {
+		return userRepository.findByConfirmationToken(confirmationToken);
+	}*/
 }

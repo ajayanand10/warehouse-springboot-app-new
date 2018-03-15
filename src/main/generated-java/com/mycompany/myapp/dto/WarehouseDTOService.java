@@ -11,6 +11,7 @@
 package com.mycompany.myapp.dto;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
@@ -18,16 +19,20 @@ import javax.inject.Inject;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.myapp.domain.Goods;
 import com.mycompany.myapp.domain.Warehouse;
+import com.mycompany.myapp.domain.WarehouseSearch;
 import com.mycompany.myapp.domain.Warehouse_;
 import com.mycompany.myapp.dto.support.PageRequestByExample;
 import com.mycompany.myapp.dto.support.PageResponse;
 import com.mycompany.myapp.repository.GoodsRepository;
 import com.mycompany.myapp.repository.WarehouseRepository;
+
+import com.mycompany.myapp.specifications.WarehouseSpecifications;
 
 /**
  * A simple DTO Facility for Warehouse.
@@ -37,6 +42,7 @@ public class WarehouseDTOService {
 
     @Inject
     private WarehouseRepository warehouseRepository;
+    
     @Inject
     private GoodsDTOService goodsDTOService;
     @Inject
@@ -59,12 +65,11 @@ public class WarehouseDTOService {
         Warehouse warehouse = toEntity(req.example);
 
         if (warehouse != null) {
-            ExampleMatcher matcher = ExampleMatcher.matching() //
-                    .withMatcher(Warehouse_.name.getName(), match -> match.ignoreCase().startsWith())
+            ExampleMatcher matcher = ExampleMatcher.matchingAny() //
+                    .withMatcher(Warehouse_.name.getName(), match -> match.ignoreCase().contains())
                     .withMatcher(Warehouse_.type.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Warehouse_.description.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.address.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.storageSize.getName(), match -> match.ignoreCase().startsWith())
+                    .withMatcher(Warehouse_.address.getName(), match -> match.ignoreCase().contains())
                     .withMatcher(Warehouse_.phone2.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Warehouse_.fulfilmentType.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Warehouse_.storagePriceUom.getName(), match -> match.ignoreCase().startsWith())
@@ -95,8 +100,8 @@ public class WarehouseDTOService {
                     .withMatcher(Warehouse_.facilityCertification.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Warehouse_.faciltiyInsurance.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Warehouse_.importExport.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.inboundServices.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.outboundServices.getName(), match -> match.ignoreCase().startsWith())
+                    .withMatcher(Warehouse_.inboundServices.getName(), match -> match.ignoreCase().contains())
+                    .withMatcher(Warehouse_.outboundServices.getName(), match -> match.ignoreCase().contains())
                     .withMatcher(Warehouse_.valueAddedServices.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Warehouse_.laborServices.getName(), match -> match.ignoreCase().startsWith())
                     .withMatcher(Warehouse_.distributionServices.getName(), match -> match.ignoreCase().startsWith())
@@ -108,8 +113,10 @@ public class WarehouseDTOService {
         Page<Warehouse> page;
         if (example != null) {
             page = warehouseRepository.findAll(example, req.toPageable());
+//        	page = warehouseRepository.findSome(example, req.toPageable());
         } else {
             page = warehouseRepository.findAll(req.toPageable());
+//        	page = warehouseRepository.findSome(req.toPageable());
         }
 
         List<WarehouseDTO> content = page.getContent().stream().map(this::toDTO).collect(Collectors.toList());
@@ -430,55 +437,13 @@ public class WarehouseDTOService {
     }
     
     @Transactional(readOnly = true)
-    public PageResponse<WarehouseDTO> findAllBySearch(PageRequestByExample<WarehouseDTO> req) {
-        Example<Warehouse> example = null;
-        Warehouse warehouse = toEntity(req.example);
-
-        if (warehouse != null) {
-            ExampleMatcher matcher = ExampleMatcher.matching() //
-                    .withMatcher(Warehouse_.type.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.address.getName(), match -> match.ignoreCase().contains())
-                    .withMatcher(Warehouse_.fulfilmentType.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.storagePriceUom.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.minHirePeriod.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.depositUom.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.facilitySizeUom.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.storageSizeUom.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.operatingDays.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.operatingHours.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.wmsVendor.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.racking.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.maxStorageHeightUom.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.maxStorageWeightUom.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.handlingEquipment.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.temperatureRange.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.structureType.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.fleetAccess.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.powerSanctioned.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.waterConnection.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.powerBackup.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.craneServices.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.fireSystems.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.security.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.lift.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.toilet.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.parking.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.yard.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.facilityCertification.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.faciltiyInsurance.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.importExport.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.inboundServices.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.outboundServices.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.valueAddedServices.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.laborServices.getName(), match -> match.ignoreCase().startsWith())
-                    .withMatcher(Warehouse_.distributionServices.getName(), match -> match.ignoreCase().startsWith());
-
-            example = Example.of(warehouse, matcher);
-        }
+    public PageResponse<WarehouseDTO> findAllBySearch(PageRequestByExample<WarehouseSearchDTO> req) {
+        WarehouseSearch warehouseSearch = toSearchEntity(req.example);
 
         Page<Warehouse> page;
-        if (example != null) {
-            page = warehouseRepository.findAll(example, req.toPageable());
+        if (warehouseSearch != null) {
+        	Specification<Warehouse> searchSpec = WarehouseSpecifications.searchSpecifications(warehouseSearch);
+            page = warehouseRepository.findAll(searchSpec,req.toPageable());
         } else {
             page = warehouseRepository.findAll(req.toPageable());
         }
@@ -486,4 +451,25 @@ public class WarehouseDTOService {
         List<WarehouseDTO> content = page.getContent().stream().map(this::toDTO).collect(Collectors.toList());
         return new PageResponse<>(page.getTotalPages(), page.getTotalElements(), content);
     }
+
+	private WarehouseSearch toSearchEntity(WarehouseSearchDTO dto) {
+		return toSearchEntity(dto, 1);
+	}
+
+	private WarehouseSearch toSearchEntity(WarehouseSearchDTO dto, int i) {
+		if(dto == null)
+		{
+			return null;
+		}
+		
+		WarehouseSearch warehouseSearch = new WarehouseSearch();
+		
+		warehouseSearch.setLocation(dto.location);
+        warehouseSearch.setType(dto.type);
+        warehouseSearch.setMinStorageSize(dto.minStorageSize);
+        warehouseSearch.setMaxStorageSize(dto.maxStorageSize);
+        
+        return warehouseSearch;
+	}
+
 }

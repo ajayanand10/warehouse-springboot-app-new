@@ -65,18 +65,18 @@
         
 		<!-- POSTGRES DATABASE SETTINGS -->
 		<!-- Local -->
-        <!-- <jdbc.groupId>org.postgresql</jdbc.groupId>
+         <jdbc.groupId>org.postgresql</jdbc.groupId>
         <jdbc.artifactId>postgresql</jdbc.artifactId>
         <jdbc.version>42.2.1</jdbc.version>
         <jdbc.driver>org.postgresql.Driver</jdbc.driver>
-        <jdbc.url>jdbc:postgresql://localhost:5432/celerio</jdbc.url>
+        <jdbc.url>jdbc:postgresql://localhost:5432/redmiermp</jdbc.url>
         <jdbc.user>postgres</jdbc.user>
         <jdbc.password>admin</jdbc.password>
         <jdbc.schema></jdbc.schema>
         <jdbc.catalog></jdbc.catalog>
         <hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</hibernate.dialect>
         <sql-maven-plugin.delimiter>;</sql-maven-plugin.delimiter>
-        <sql.create.script>app-postgres-create.sql</sql.create.script> -->
+        <sql.create.script>app-postgres-create.sql</sql.create.script>	
         
         <!-- Heroku -->
         <!-- <jdbc.groupId>org.postgresql</jdbc.groupId>
@@ -93,7 +93,7 @@
         <sql.create.script>app-postgres-create.sql</sql.create.script> -->
         
         <!-- AWS -->
-        <jdbc.groupId>org.postgresql</jdbc.groupId>
+        <!-- <jdbc.groupId>org.postgresql</jdbc.groupId>
         <jdbc.artifactId>postgresql</jdbc.artifactId>
         <jdbc.version>42.2.1</jdbc.version>
         <jdbc.driver>org.postgresql.Driver</jdbc.driver>
@@ -104,21 +104,8 @@
         <jdbc.catalog></jdbc.catalog>
         <hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</hibernate.dialect>
         <sql-maven-plugin.delimiter>;</sql-maven-plugin.delimiter>
-        <sql.create.script>app-postgres-create.sql</sql.create.script>
+        <sql.create.script>app-postgres-create.sql</sql.create.script>  -->
 		
-		<!-- local -->
-		<!-- <jdbc.groupId>org.postgresql</jdbc.groupId>
-        <jdbc.artifactId>postgresql</jdbc.artifactId>
-        <jdbc.version>42.2.1</jdbc.version>
-        <jdbc.driver>org.postgresql.Driver</jdbc.driver>
-        <jdbc.url>jdbc:postgresql://localhost:5432/redmiermp?sslmode=require</jdbc.url>
-        <jdbc.user>ajay</jdbc.user>
-        <jdbc.password>anand123</jdbc.password>
-        <jdbc.schema></jdbc.schema>
-        <jdbc.catalog></jdbc.catalog>
-        <hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</hibernate.dialect>
-        <sql-maven-plugin.delimiter>;</sql-maven-plugin.delimiter>
-        <sql.create.script>app-postgres-create.sql</sql.create.script> -->
 
         <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
         <!-- Version dependencies when used in multiple dependencies -->
@@ -159,6 +146,10 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 		
         <dependency>

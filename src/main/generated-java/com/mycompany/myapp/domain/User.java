@@ -69,6 +69,9 @@ public class User implements Identifiable<Integer>, Serializable {
 
     // Many to many
     private List<Role> roles = new ArrayList<Role>();
+    
+    //added manually
+    private String confirmationLink;
 
     @Override
     public String entityClassName() {
@@ -170,9 +173,11 @@ public class User implements Identifiable<Integer>, Serializable {
     }
     // -- [email] ------------------------
 
-    @Email
+    
     @Size(max = 100)
-    @Column(name = "email", length = 100)
+    @Column(name = "email", nullable = false, length = 100)
+    @Email(message = "Please provide a valid e-mail")
+	@NotEmpty(message = "Please provide an e-mail")
     public String getEmail() {
         return email;
     }
@@ -237,6 +242,7 @@ public class User implements Identifiable<Integer>, Serializable {
 
     @Size(max = 100)
     @Column(name = "first_name", length = 100)
+    @NotEmpty(message = "Please provide your first name")
     public String getFirstName() {
         return firstName;
     }
@@ -253,6 +259,7 @@ public class User implements Identifiable<Integer>, Serializable {
 
     @Size(max = 100)
     @Column(name = "last_name", length = 100)
+    @NotEmpty(message = "Please provide your last name")
     public String getLastName() {
         return lastName;
     }
@@ -463,4 +470,14 @@ public class User implements Identifiable<Integer>, Serializable {
             setLastModificationDate(Instant.now());
         }
     }
+
+	public String getConfirmationLink() {
+		return confirmationLink;
+	}
+
+	public void setConfirmationLink(String confirmationLink) {
+		this.confirmationLink = confirmationLink;
+	}
+    
+    
 }

@@ -16,12 +16,6 @@ import { HomeComponent } from './home.component';
 import { BookmarkListComponent } from './entities/bookmark/bookmark-list.component';
 import { BookmarkDetailComponent } from './entities/bookmark/bookmark-detail.component';
 
-import { DatabasechangelogListComponent } from './entities/databasechangelog/databasechangelog-list.component';
-import { DatabasechangelogDetailComponent } from './entities/databasechangelog/databasechangelog-detail.component';
-
-import { DatabasechangeloglockListComponent } from './entities/databasechangeloglock/databasechangeloglock-list.component';
-import { DatabasechangeloglockDetailComponent } from './entities/databasechangeloglock/databasechangeloglock-detail.component';
-
 import { EnquiryListComponent } from './entities/enquiry/enquiry-list.component';
 import { EnquiryDetailComponent } from './entities/enquiry/enquiry-detail.component';
 
@@ -34,29 +28,11 @@ import { GuestDetailComponent } from './entities/guest/guest-detail.component';
 import { OrderListComponent } from './entities/order/order-list.component';
 import { OrderDetailComponent } from './entities/order/order-detail.component';
 
-import { PassportListComponent } from './entities/passport/passport-list.component';
-import { PassportDetailComponent } from './entities/passport/passport-detail.component';
-
-import { ProjectListComponent } from './entities/project/project-list.component';
-import { ProjectDetailComponent } from './entities/project/project-detail.component';
-
 import { RateListComponent } from './entities/rate/rate-list.component';
 import { RateDetailComponent } from './entities/rate/rate-detail.component';
 
-import { RecordListComponent } from './entities/record/record-list.component';
-import { RecordDetailComponent } from './entities/record/record-detail.component';
-
 import { RoleListComponent } from './entities/role/role-list.component';
 import { RoleDetailComponent } from './entities/role/role-detail.component';
-
-import { UseCase1ListComponent } from './entities/useCase1/useCase1-list.component';
-import { UseCase1DetailComponent } from './entities/useCase1/useCase1-detail.component';
-
-import { UseCase2ListComponent } from './entities/useCase2/useCase2-list.component';
-import { UseCase2DetailComponent } from './entities/useCase2/useCase2-detail.component';
-
-import { UseCase3ListComponent } from './entities/useCase3/useCase3-list.component';
-import { UseCase3DetailComponent } from './entities/useCase3/useCase3-detail.component';
 
 import { UserListComponent } from './entities/user/user-list.component';
 import { UserDetailComponent } from './entities/user/user-detail.component';
@@ -79,12 +55,6 @@ export const routes: Routes = [
     {path: 'bookmark-list', component: BookmarkListComponent },
     {path: 'bookmark/:id', component: BookmarkDetailComponent }
     ,
-    {path: 'databasechangelog-list', component: DatabasechangelogListComponent },
-    {path: 'databasechangelog/:id', component: DatabasechangelogDetailComponent }
-    ,
-    {path: 'databasechangeloglock-list', component: DatabasechangeloglockListComponent },
-    {path: 'databasechangeloglock/:id', component: DatabasechangeloglockDetailComponent }
-    ,
     {path: 'enquiry-list', component: EnquiryListComponent },
     {path: 'enquiry/:id', component: EnquiryDetailComponent }
     ,
@@ -97,29 +67,11 @@ export const routes: Routes = [
     {path: 'order-list', component: OrderListComponent },
     {path: 'order/:id', component: OrderDetailComponent }
     ,
-    {path: 'passport-list', component: PassportListComponent },
-    {path: 'passport/:id', component: PassportDetailComponent }
-    ,
-    {path: 'project-list', component: ProjectListComponent },
-    {path: 'project/:id', component: ProjectDetailComponent }
-    ,
     {path: 'rate-list', component: RateListComponent },
     {path: 'rate/:id', component: RateDetailComponent }
     ,
-    {path: 'record-list', component: RecordListComponent },
-    {path: 'record/:id', component: RecordDetailComponent }
-    ,
     {path: 'role-list', component: RoleListComponent },
     {path: 'role/:id', component: RoleDetailComponent }
-    ,
-    {path: 'useCase1-list', component: UseCase1ListComponent },
-    {path: 'useCase1/:id', component: UseCase1DetailComponent }
-    ,
-    {path: 'useCase2-list', component: UseCase2ListComponent },
-    {path: 'useCase2/:id', component: UseCase2DetailComponent }
-    ,
-    {path: 'useCase3-list', component: UseCase3ListComponent },
-    {path: 'useCase3/:id', component: UseCase3DetailComponent }
     ,
     {path: 'user-list', component: UserListComponent },
     {path: 'user/:id', component: UserDetailComponent }

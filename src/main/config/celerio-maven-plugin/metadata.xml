@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata xmlns="http://www.jaxio.com/schema/celerio">
-  <jdbcConnectivity driver="org.postgresql.Driver" url="jdbc:postgresql://ec2-184-73-202-179.compute-1.amazonaws.com:5432/ddk3474pq7ubr8?sslmode=require" user="gjkwdpbvpdlxif" password="e21cf379b73fdbc6a25c9e94181bdf50b2df6e5a1a2f1344d0478a5fc855e309" schemaName="" oracleRetrieveRemarks="false" oracleRetrieveSynonyms="true" reverseIndexes="true" reverseOnlyUniqueIndexes="true" catalog="">
+  <jdbcConnectivity driver="org.postgresql.Driver" url="jdbc:postgresql://localhost:5432/redmiermp" user="postgres" password="admin" schemaName="" oracleRetrieveRemarks="false" oracleRetrieveSynonyms="true" reverseIndexes="true" reverseOnlyUniqueIndexes="true" catalog="">
     <tableNamePatterns/>
     <tableTypes>
       <tableType>TABLE</tableType>
     </tableTypes>
   </jdbcConnectivity>
-  <databaseInfo databaseMajorVersion="10" databaseMinorVersion="2" databaseProductName="PostgreSQL" databaseProductVersion="10.2 (Ubuntu 10.2-1.pgdg14.04+1)" driverMajorVersion="42" driverMinorVersion="2" driverName="PostgreSQL JDBC Driver" driverVersion="42.2.1" extraInfo=""/>
+  <databaseInfo databaseMajorVersion="10" databaseMinorVersion="2" databaseProductName="PostgreSQL" databaseProductVersion="10.2" driverMajorVersion="42" driverMinorVersion="2" driverName="PostgreSQL JDBC Driver" driverVersion="42.2.1" extraInfo=""/>
   <tables>
     <table name="bookmark" type="TABLE" schemaName="public">
       <columns>
@@ -26,45 +26,6 @@
         <importedKey fkColumnName="user_id" fkName="bookmark_user_id_fk" pkColumnName="id" pkTableName="user" pkTableSchema="public"/>
         <importedKey fkColumnName="warehouse_id" fkName="bookmark_warehouse_id_fk" pkColumnName="id" pkTableName="warehouse" pkTableSchema="public"/>
       </importedKeys>
-      <primaryKeys>
-        <primaryKey>id</primaryKey>
-      </primaryKeys>
-    </table>
-    <table name="databasechangelog" type="TABLE" schemaName="public">
-      <columns>
-        <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="255" type="VARCHAR"/>
-        <column name="author" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
-        <column name="comments" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="255" type="VARCHAR"/>
-        <column name="contexts" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="255" type="VARCHAR"/>
-        <column name="dateexecuted" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="5" size="29" type="TIMESTAMP"/>
-        <column name="description" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="6" size="255" type="VARCHAR"/>
-        <column name="exectype" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="7" size="10" type="VARCHAR"/>
-        <column name="filename" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="8" size="255" type="VARCHAR"/>
-        <column name="labels" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="9" size="255" type="VARCHAR"/>
-        <column name="liquibase" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="10" size="20" type="VARCHAR"/>
-        <column name="md5sum" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="11" size="35" type="VARCHAR"/>
-        <column name="orderexecuted" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="12" size="10" type="INTEGER"/>
-        <column name="tag" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="13" size="255" type="VARCHAR"/>
-      </columns>
-      <indexes>
-        <indexe columnName="id" indexName="databasechangelog_pkey" nonUnique="false"/>
-      </indexes>
-      <importedKeys/>
-      <primaryKeys>
-        <primaryKey>id</primaryKey>
-      </primaryKeys>
-    </table>
-    <table name="databasechangeloglock" type="TABLE" schemaName="public">
-      <columns>
-        <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
-        <column name="locked" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="1" type="BIT"/>
-        <column name="lockedby" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="255" type="VARCHAR"/>
-        <column name="lockgranted" decimalDigits="6" autoIncrement="false" nullable="true" ordinalPosition="4" size="29" type="TIMESTAMP"/>
-      </columns>
-      <indexes>
-        <indexe columnName="id" indexName="databasechangeloglock_pkey" nonUnique="false"/>
-      </indexes>
-      <importedKeys/>
       <primaryKeys>
         <primaryKey>id</primaryKey>
       </primaryKeys>
@@ -146,38 +107,6 @@
         <primaryKey>id</primaryKey>
       </primaryKeys>
     </table>
-    <table name="passport" type="TABLE" schemaName="public">
-      <columns>
-        <column name="id" columnDef="nextval('passport_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
-        <column name="expiration_date" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="2" size="13" type="DATE"/>
-        <column name="passport_number" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
-        <column name="holder_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="4" size="10" type="INTEGER"/>
-      </columns>
-      <indexes>
-        <indexe columnName="id" indexName="passport_pkey" nonUnique="false"/>
-        <indexe columnName="holder_id" indexName="uk_dnm6peshg9qd1s0x2d63paapo" nonUnique="false"/>
-      </indexes>
-      <importedKeys/>
-      <primaryKeys>
-        <primaryKey>id</primaryKey>
-      </primaryKeys>
-    </table>
-    <table name="project" type="TABLE" schemaName="public">
-      <columns>
-        <column name="id" columnDef="nextval('project_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
-        <column name="name" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
-        <column name="open_source" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="3" size="1" type="BIT"/>
-        <column name="url" decimalDigits="0" autoIncrement="false" nullable="true" ordinalPosition="4" size="100" type="VARCHAR"/>
-        <column name="author_id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="5" size="10" type="INTEGER"/>
-      </columns>
-      <indexes>
-        <indexe columnName="id" indexName="project_pkey" nonUnique="false"/>
-      </indexes>
-      <importedKeys/>
-      <primaryKeys>
-        <primaryKey>id</primaryKey>
-      </primaryKeys>
-    </table>
     <table name="rate" type="TABLE" schemaName="public">
       <columns>
         <column name="id" columnDef="nextval('rate_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
@@ -203,19 +132,6 @@
         <primaryKey>id</primaryKey>
       </primaryKeys>
     </table>
-    <table name="record" type="TABLE" schemaName="public">
-      <columns>
-        <column name="id" columnDef="nextval('record_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
-        <column name="data" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
-      </columns>
-      <indexes>
-        <indexe columnName="id" indexName="record_pkey" nonUnique="false"/>
-      </indexes>
-      <importedKeys/>
-      <primaryKeys>
-        <primaryKey>id</primaryKey>
-      </primaryKeys>
-    </table>
     <table name="role" type="TABLE" schemaName="public">
       <columns>
         <column name="id" columnDef="nextval('role_id_seq'::regclass)" decimalDigits="0" autoIncrement="true" nullable="false" ordinalPosition="1" size="10" type="INTEGER"/>
@@ -228,53 +144,6 @@
       <importedKeys/>
       <primaryKeys>
         <primaryKey>id</primaryKey>
-      </primaryKeys>
-    </table>
-    <table name="use_case_1" type="TABLE" schemaName="public">
-      <columns>
-        <column name="id1" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="1" size="29" type="TIMESTAMP"/>
-        <column name="id2" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
-        <column name="dummy" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
-      </columns>
-      <indexes>
-        <indexe columnName="id1" indexName="use_case_1_pkey" nonUnique="false"/>
-        <indexe columnName="id2" indexName="use_case_1_pkey" nonUnique="false"/>
-      </indexes>
-      <importedKeys/>
-      <primaryKeys>
-        <primaryKey>id1</primaryKey>
-        <primaryKey>id2</primaryKey>
-      </primaryKeys>
-    </table>
-    <table name="use_case_2" type="TABLE" schemaName="public">
-      <columns>
-        <column name="id" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="1" size="32" type="VARCHAR"/>
-        <column name="dummy" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="100" type="VARCHAR"/>
-      </columns>
-      <indexes>
-        <indexe columnName="id" indexName="use_case_2_pkey" nonUnique="false"/>
-      </indexes>
-      <importedKeys/>
-      <primaryKeys>
-        <primaryKey>id</primaryKey>
-      </primaryKeys>
-    </table>
-    <table name="use_case_3" type="TABLE" schemaName="public">
-      <columns>
-        <column name="id1" decimalDigits="6" autoIncrement="false" nullable="false" ordinalPosition="1" size="29" type="TIMESTAMP"/>
-        <column name="id2" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="2" size="255" type="VARCHAR"/>
-        <column name="dummy" decimalDigits="0" autoIncrement="false" nullable="false" ordinalPosition="3" size="100" type="VARCHAR"/>
-      </columns>
-      <indexes>
-        <indexe columnName="id1" indexName="use_case_3_pkey" nonUnique="false"/>
-        <indexe columnName="id2" indexName="use_case_3_pkey" nonUnique="false"/>
-      </indexes>
-      <importedKeys>
-        <importedKey fkColumnName="id2" fkName="fkbsu95vjdy7s1egp0jycwj6ik1" pkColumnName="id" pkTableName="use_case_2" pkTableSchema="public"/>
-      </importedKeys>
-      <primaryKeys>
-        <primaryKey>id1</primaryKey>
-        <primaryKey>id2</primaryKey>
       </primaryKeys>
     </table>
     <table name="user" type="TABLE" schemaName="public">

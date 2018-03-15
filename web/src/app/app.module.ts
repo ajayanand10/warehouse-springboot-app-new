@@ -33,20 +33,6 @@ import { BookmarkDetailComponent } from './entities/bookmark/bookmark-detail.com
 import { BookmarkLineComponent } from './entities/bookmark/bookmark-line.component';
 import { BookmarkCompleteComponent } from './entities/bookmark/bookmark-auto-complete.component';
 
-// Databasechangelog ...
-import { DatabasechangelogService } from './entities/databasechangelog/databasechangelog.service';
-import { DatabasechangelogListComponent } from './entities/databasechangelog/databasechangelog-list.component';
-import { DatabasechangelogDetailComponent } from './entities/databasechangelog/databasechangelog-detail.component';
-import { DatabasechangelogLineComponent } from './entities/databasechangelog/databasechangelog-line.component';
-import { DatabasechangelogCompleteComponent } from './entities/databasechangelog/databasechangelog-auto-complete.component';
-
-// Databasechangeloglock ...
-import { DatabasechangeloglockService } from './entities/databasechangeloglock/databasechangeloglock.service';
-import { DatabasechangeloglockListComponent } from './entities/databasechangeloglock/databasechangeloglock-list.component';
-import { DatabasechangeloglockDetailComponent } from './entities/databasechangeloglock/databasechangeloglock-detail.component';
-import { DatabasechangeloglockLineComponent } from './entities/databasechangeloglock/databasechangeloglock-line.component';
-import { DatabasechangeloglockCompleteComponent } from './entities/databasechangeloglock/databasechangeloglock-auto-complete.component';
-
 // Enquiry ...
 import { EnquiryService } from './entities/enquiry/enquiry.service';
 import { EnquiryListComponent } from './entities/enquiry/enquiry-list.component';
@@ -75,20 +61,6 @@ import { OrderDetailComponent } from './entities/order/order-detail.component';
 import { OrderLineComponent } from './entities/order/order-line.component';
 import { OrderCompleteComponent } from './entities/order/order-auto-complete.component';
 
-// Passport ...
-import { PassportService } from './entities/passport/passport.service';
-import { PassportListComponent } from './entities/passport/passport-list.component';
-import { PassportDetailComponent } from './entities/passport/passport-detail.component';
-import { PassportLineComponent } from './entities/passport/passport-line.component';
-import { PassportCompleteComponent } from './entities/passport/passport-auto-complete.component';
-
-// Project ...
-import { ProjectService } from './entities/project/project.service';
-import { ProjectListComponent } from './entities/project/project-list.component';
-import { ProjectDetailComponent } from './entities/project/project-detail.component';
-import { ProjectLineComponent } from './entities/project/project-line.component';
-import { ProjectCompleteComponent } from './entities/project/project-auto-complete.component';
-
 // Rate ...
 import { RateService } from './entities/rate/rate.service';
 import { RateListComponent } from './entities/rate/rate-list.component';
@@ -96,40 +68,12 @@ import { RateDetailComponent } from './entities/rate/rate-detail.component';
 import { RateLineComponent } from './entities/rate/rate-line.component';
 import { RateCompleteComponent } from './entities/rate/rate-auto-complete.component';
 
-// Record ...
-import { RecordService } from './entities/record/record.service';
-import { RecordListComponent } from './entities/record/record-list.component';
-import { RecordDetailComponent } from './entities/record/record-detail.component';
-import { RecordLineComponent } from './entities/record/record-line.component';
-import { RecordCompleteComponent } from './entities/record/record-auto-complete.component';
-
 // Role ...
 import { RoleService } from './entities/role/role.service';
 import { RoleListComponent } from './entities/role/role-list.component';
 import { RoleDetailComponent } from './entities/role/role-detail.component';
 import { RoleLineComponent } from './entities/role/role-line.component';
 import { RoleCompleteComponent } from './entities/role/role-auto-complete.component';
-
-// UseCase1 ...
-import { UseCase1Service } from './entities/useCase1/useCase1.service';
-import { UseCase1ListComponent } from './entities/useCase1/useCase1-list.component';
-import { UseCase1DetailComponent } from './entities/useCase1/useCase1-detail.component';
-import { UseCase1LineComponent } from './entities/useCase1/useCase1-line.component';
-import { UseCase1CompleteComponent } from './entities/useCase1/useCase1-auto-complete.component';
-
-// UseCase2 ...
-import { UseCase2Service } from './entities/useCase2/useCase2.service';
-import { UseCase2ListComponent } from './entities/useCase2/useCase2-list.component';
-import { UseCase2DetailComponent } from './entities/useCase2/useCase2-detail.component';
-import { UseCase2LineComponent } from './entities/useCase2/useCase2-line.component';
-import { UseCase2CompleteComponent } from './entities/useCase2/useCase2-auto-complete.component';
-
-// UseCase3 ...
-import { UseCase3Service } from './entities/useCase3/useCase3.service';
-import { UseCase3ListComponent } from './entities/useCase3/useCase3-list.component';
-import { UseCase3DetailComponent } from './entities/useCase3/useCase3-detail.component';
-import { UseCase3LineComponent } from './entities/useCase3/useCase3-line.component';
-import { UseCase3CompleteComponent } from './entities/useCase3/useCase3-auto-complete.component';
 
 // User ...
 import { UserService } from './entities/user/user.service';
@@ -178,16 +122,6 @@ import { WarehouseServiceProviderCompleteComponent } from './entities/warehouseS
     BookmarkLineComponent,
     BookmarkCompleteComponent
     ,
-    DatabasechangelogListComponent,
-    DatabasechangelogDetailComponent,
-    DatabasechangelogLineComponent,
-    DatabasechangelogCompleteComponent
-    ,
-    DatabasechangeloglockListComponent,
-    DatabasechangeloglockDetailComponent,
-    DatabasechangeloglockLineComponent,
-    DatabasechangeloglockCompleteComponent
-    ,
     EnquiryListComponent,
     EnquiryDetailComponent,
     EnquiryLineComponent,
@@ -208,45 +142,15 @@ import { WarehouseServiceProviderCompleteComponent } from './entities/warehouseS
     OrderLineComponent,
     OrderCompleteComponent
     ,
-    PassportListComponent,
-    PassportDetailComponent,
-    PassportLineComponent,
-    PassportCompleteComponent
-    ,
-    ProjectListComponent,
-    ProjectDetailComponent,
-    ProjectLineComponent,
-    ProjectCompleteComponent
-    ,
     RateListComponent,
     RateDetailComponent,
     RateLineComponent,
     RateCompleteComponent
     ,
-    RecordListComponent,
-    RecordDetailComponent,
-    RecordLineComponent,
-    RecordCompleteComponent
-    ,
     RoleListComponent,
     RoleDetailComponent,
     RoleLineComponent,
     RoleCompleteComponent
-    ,
-    UseCase1ListComponent,
-    UseCase1DetailComponent,
-    UseCase1LineComponent,
-    UseCase1CompleteComponent
-    ,
-    UseCase2ListComponent,
-    UseCase2DetailComponent,
-    UseCase2LineComponent,
-    UseCase2CompleteComponent
-    ,
-    UseCase3ListComponent,
-    UseCase3DetailComponent,
-    UseCase3LineComponent,
-    UseCase3CompleteComponent
     ,
     UserListComponent,
     UserDetailComponent,
@@ -318,20 +222,12 @@ import { WarehouseServiceProviderCompleteComponent } from './entities/warehouseS
     providers: [
 // our application entity services
         BookmarkService,
-        DatabasechangelogService,
-        DatabasechangeloglockService,
         EnquiryService,
         GoodsService,
         GuestService,
         OrderService,
-        PassportService,
-        ProjectService,
         RateService,
-        RecordService,
         RoleService,
-        UseCase1Service,
-        UseCase2Service,
-        UseCase3Service,
         UserService,
         WarehouseService,
         WarehousePhotoService,
