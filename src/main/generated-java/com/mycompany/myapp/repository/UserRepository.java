@@ -45,5 +45,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     
     //added by Ajay
     User findByEmail(String email);
-//    User findByConfirmationToken(String confirmationToken);
+    User findByConfirmationToken(String confirmationToken);
 }

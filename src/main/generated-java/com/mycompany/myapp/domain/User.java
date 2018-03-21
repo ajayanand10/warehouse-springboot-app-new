@@ -23,6 +23,7 @@ import javax.persistence.Column;
 import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -32,10 +33,14 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.persistence.ValidationMode;
 import javax.persistence.Version;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -71,7 +76,7 @@ public class User implements Identifiable<Integer>, Serializable {
     private List<Role> roles = new ArrayList<Role>();
     
     //added manually
-    private String confirmationLink;
+    private String confirmationToken;
 
     @Override
     public String entityClassName() {
@@ -157,7 +162,7 @@ public class User implements Identifiable<Integer>, Serializable {
     }
     // -- [phone] ------------------------
 
-    @FixedLength(length = 10)
+//    @FixedLength(length = 10)
     @Column(name = "phone", length = 10)
     public String getPhone() {
         return phone;
@@ -193,7 +198,7 @@ public class User implements Identifiable<Integer>, Serializable {
     // -- [isEnabled] ------------------------
 
     @NotNull
-    @Column(name = "is_enabled", nullable = false, length = 1)
+    @Column(name = "is_enabled", length = 1)
     public Boolean getIsEnabled() {
         return isEnabled;
     }
@@ -362,6 +367,7 @@ public class User implements Identifiable<Integer>, Serializable {
      */
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id") , inverseJoinColumns = @JoinColumn(name = "role_id") )
     @ManyToMany
+    @LazyCollection(value = LazyCollectionOption.FALSE)
     public List<Role> getRoles() {
         return roles;
     }
@@ -471,13 +477,15 @@ public class User implements Identifiable<Integer>, Serializable {
         }
     }
 
-	public String getConfirmationLink() {
-		return confirmationLink;
+    @Column(name = "confirmation_token", length = 100)
+	public String getConfirmationToken() {
+		return confirmationToken;
 	}
 
-	public void setConfirmationLink(String confirmationLink) {
-		this.confirmationLink = confirmationLink;
+	public void setConfirmationToken(String confirmationToken) {
+		this.confirmationToken = confirmationToken;
 	}
+	
     
     
 }

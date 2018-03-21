@@ -42,7 +42,7 @@ import com.mycompany.myapp.repository.UserRepository;
 import com.mycompany.myapp.rest.support.AutoCompleteQuery;
 
 @RestController
-@RequestMapping("/pages")
+@RequestMapping("/api")
 public class UserRegistrationResource {
 
     private final Logger log = LoggerFactory.getLogger(UserRegistrationResource.class);

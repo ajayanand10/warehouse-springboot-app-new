@@ -38,10 +38,16 @@ spring:
             hibernate.generate_statistics: false
 
     mail:
-        host: smtp.mailhost.com
-        username: mailUser
-        password: mailPass
+        host: smtp.zoho.com
+        username: ajay.anand10@zoho.com
+        password: kalyan@10
         port: 587
+        protocol: smtp
+        tls: true
+        properties.mail.smtp:
+          auth: true
+          starttls.enable: true    
+       
 
 
 

@@ -135,6 +135,8 @@ public class UserDTOService {
         if (dto.roles != null) {
             dto.roles.stream().forEach(role -> user.addRole(roleRepository.findOne(role.id)));
         }
+        
+        user.setConfirmationToken(dto.confirmationToken);
 
         return toDTO(userRepository.save(user));
     }
@@ -181,6 +183,7 @@ public class UserDTOService {
             final int fdepth = depth;
             dto.roles = user.getRoles().stream().map(role -> roleDTOService.toDTO(role, fdepth)).collect(Collectors.toList());
         }
+        dto.confirmationToken = user.getConfirmationToken();
 
         return dto;
     }
@@ -226,12 +229,18 @@ public class UserDTOService {
     }
     
     //added by Ajay
-    public User findByEmail(String email) {
-		return userRepository.findByEmail(email);
+    public UserDTO findByEmail(String email) {
+		return toDTO(userRepository.findByEmail(email));
 	}
 	
     //added by Ajay
-	/*public User findByConfirmationToken(String confirmationToken) {
-		return userRepository.findByConfirmationToken(confirmationToken);
-	}*/
+	public UserDTO findByConfirmationToken(String confirmationToken) {
+		return toDTO(userRepository.findByConfirmationToken(confirmationToken));
+	}
+	
+	@Transactional
+	public UserDTO saveUser(User user)
+	{
+		return toDTO(userRepository.save(user));
+	}
 }
