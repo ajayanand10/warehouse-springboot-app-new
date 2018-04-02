@@ -1,6 +1,7 @@
 package com.mycompany.myapp.rest;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+import static org.springframework.http.MediaType.TEXT_PLAIN_VALUE;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -52,7 +53,7 @@ public class RegisterResource {
 	}*/
 	
 	// Process form input data
-	@RequestMapping(value = "/register", method = POST, produces = APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/register", method = POST, produces = TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> processRegistration(@RequestBody UserDTO userDTO, HttpServletRequest request) throws URISyntaxException {
 				
 		// Lookup user in database by e-mail
@@ -61,7 +62,7 @@ public class RegisterResource {
 		System.out.println(userExists);
 		
 		if (userExists != null) {
-			return (ResponseEntity<String>)ResponseEntity.badRequest().header("Failure", "Cannot create User with existing Email-ID").body(new String("Error : Email-ID already exists !!!"));
+			return ResponseEntity.badRequest().header("Failure", "Cannot create User with existing Email-ID").body("Error : Email-ID already exists !!!");
 		}
 		else { // new user so we create user and send confirmation e-mail
 //			User user = userService.toEntity(userDTO);
@@ -84,13 +85,13 @@ public class RegisterResource {
 			emailService.sendEmail(registrationEmail);
 			String confirmationMessage = "A confirmation e-mail has been sent to " + savedUser.email;
 			
-			return (ResponseEntity<String>)ResponseEntity.created(new URI("/api/users/" + savedUser.id)).body(new String(confirmationMessage));
+			return ResponseEntity.created(new URI("/api/users/" + savedUser.id)).body(confirmationMessage);
 		}
 			
 	}
 	
 	// Process confirmation link
-	@RequestMapping(value="/confirm", method = GET)
+	@RequestMapping(value="/confirm", method = GET, produces = TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> showConfirmationPage(@RequestParam("token") String token) {
 			
 		UserDTO user = userService.findByConfirmationToken(token);

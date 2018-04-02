@@ -32,9 +32,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.mycompany.myapp.domain.Warehouse;
+import com.mycompany.myapp.domain.WarehouseSearchResults;
+import com.mycompany.myapp.domain.WarehouseSummary;
 import com.mycompany.myapp.dto.WarehouseDTO;
 import com.mycompany.myapp.dto.WarehouseDTOService;
 import com.mycompany.myapp.dto.WarehouseSearchDTO;
+import com.mycompany.myapp.dto.WarehouseSearchResultsDTO;
 import com.mycompany.myapp.dto.support.PageRequestByExample;
 import com.mycompany.myapp.dto.support.PageResponse;
 import com.mycompany.myapp.repository.WarehouseRepository;
@@ -137,9 +140,18 @@ public class WarehouseResource {
     /**
      * Find a Page of Warehouses using search query by Specifications.
      */
-    @RequestMapping(value = "/search", method = POST, produces = APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/search/full", method = POST, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<PageResponse<WarehouseDTO>> findAllBySearch(@RequestBody PageRequestByExample<WarehouseSearchDTO> prbe) throws URISyntaxException {
         PageResponse<WarehouseDTO> pageResponse = warehouseDTOService.findAllBySearch(prbe);
+        return new ResponseEntity<>(pageResponse, new HttpHeaders(), HttpStatus.OK);
+    }
+    
+    /**
+     * Find a Page of Warehouses using search query by Specifications.
+     */
+    @RequestMapping(value = "/search", method = POST, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<PageResponse<WarehouseSummary>> findAllForSearch(@RequestBody PageRequestByExample<WarehouseSearchDTO> prbe) throws URISyntaxException {
+        PageResponse<WarehouseSummary> pageResponse = warehouseDTOService.findAllForSearch(prbe);
         return new ResponseEntity<>(pageResponse, new HttpHeaders(), HttpStatus.OK);
     }
 }

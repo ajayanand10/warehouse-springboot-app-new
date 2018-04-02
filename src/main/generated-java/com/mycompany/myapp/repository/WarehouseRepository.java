@@ -17,16 +17,22 @@ import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.query.Param;
 
 import com.mycompany.myapp.domain.Warehouse;
 import com.mycompany.myapp.domain.Warehouse_;
 import com.mycompany.myapp.domain.WarehouseSearch;
+import com.mycompany.myapp.domain.WarehouseSearchResults;
+import com.mycompany.myapp.domain.WarehouseSummary;
 
 public interface WarehouseRepository extends JpaRepository<Warehouse, Integer>, JpaSpecificationExecutor<Warehouse> {
-	final String SEARCH_QUERY = "select w.id, w.name, w.type, w.rating, w.storageSize, w.storageSizeUom, w.storagePrice, w.storagePriceUom  from Warehouse w";
-
-    default List<Warehouse> complete(String query, int maxResults) {
+	final String SEARCH_QUERY = "select w.id as id, w.name as name, w.lat as lat, w.lng as lng, w.rating as rating, w.storageSize as storageSize, w.storageSizeUom as storageSizeUom, w.storagePrice as storagePrice, w.storagePriceUom as storagePriceUom,w.facilitySize as facilitySize,w.facilitySizeUom  as facilitySizeUom from Warehouse w";
+	final String SEARCH_QUERY_CONDITION = "select w.id as id, w.name as name, w.lat as lat, w.lng as lng, w.rating as rating, w.storageSize as storageSize, w.storageSizeUom as storageSizeUom, w.storagePrice as storagePrice, w.storagePriceUom as storagePriceUom,w.facilitySize as facilitySize,w.facilitySizeUom as facilitySizeUom from Warehouse w"
+										+ " WHERE  w.type like %?1% AND w.address like %?2% AND w.storageSize >= ?3 AND w.storageSize<= ?4 ";
+    
+	default List<Warehouse> complete(String query, int maxResults) {
         Warehouse probe = new Warehouse();
         probe.setName(query);
 
@@ -38,11 +44,13 @@ public interface WarehouseRepository extends JpaRepository<Warehouse, Integer>, 
     }
     
     
-    @Query(SEARCH_QUERY)
-    Page<Warehouse> findSome(Example<Warehouse> example, Pageable pageable);
     
     @Query(SEARCH_QUERY)
-    Page<Warehouse> findSome(Pageable pageable);
+    Page<WarehouseSummary> findAllForSearch(Pageable pageable);
     
+    
+    @Query(SEARCH_QUERY_CONDITION)
+    Page<WarehouseSummary> findAllForSearch(String type,String location,int minStorageSize,int maxStorageSize,Pageable pageable);
+//    Page<WarehouseSummary> findAllProjectedBy(String type,String location,int minStorageSize,int maxStorageSize,Pageable pageable);
     
 }

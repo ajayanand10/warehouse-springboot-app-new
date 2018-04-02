@@ -24,10 +24,12 @@ public class UserDTO {
     public Integer id;
     public String login;
     public String password;
+    public String confirmPassword;
     public String phone;
     public String email;
     public Boolean isEnabled;
     public String confirmationToken;
+    public String resetToken;
     public Civility civility;
     public CountryCode countryCode;
     public String firstName;

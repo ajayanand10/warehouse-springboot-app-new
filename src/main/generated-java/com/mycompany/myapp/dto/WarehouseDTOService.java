@@ -26,6 +26,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.mycompany.myapp.domain.Goods;
 import com.mycompany.myapp.domain.Warehouse;
 import com.mycompany.myapp.domain.WarehouseSearch;
+import com.mycompany.myapp.domain.WarehouseSearchResults;
+import com.mycompany.myapp.domain.WarehouseSummary;
 import com.mycompany.myapp.domain.Warehouse_;
 import com.mycompany.myapp.dto.support.PageRequestByExample;
 import com.mycompany.myapp.dto.support.PageResponse;
@@ -344,6 +346,8 @@ public class WarehouseDTOService {
         dto.lastModificationDate = warehouse.getLastModificationDate();
         dto.lastModificationAuthor = warehouse.getLastModificationAuthor();
         dto.version = warehouse.getVersion();
+        dto.lat = warehouse.getLat();
+        dto.lng = warehouse.getLng();
         
         if (depth-- > 0) {
        	 final int fdepth = depth;
@@ -430,6 +434,8 @@ public class WarehouseDTOService {
         warehouse.setLastModificationDate(dto.lastModificationDate);
         warehouse.setLastModificationAuthor(dto.lastModificationAuthor);
         warehouse.setVersion(dto.version);
+        warehouse.setLat(dto.lat);
+        warehouse.setLng(dto.lng);
         if (depth-- > 0) {
         }
 
@@ -451,6 +457,23 @@ public class WarehouseDTOService {
         List<WarehouseDTO> content = page.getContent().stream().map(this::toDTO).collect(Collectors.toList());
         return new PageResponse<>(page.getTotalPages(), page.getTotalElements(), content);
     }
+    
+    @Transactional(readOnly = true)
+    public PageResponse<WarehouseSummary> findAllForSearch(PageRequestByExample<WarehouseSearchDTO> req) {
+        WarehouseSearch warehouseSearch = toSearchEntity(req.example);
+
+        Page<WarehouseSummary> page;
+        if (warehouseSearch != null) {
+        	page = warehouseRepository.findAllForSearch(warehouseSearch.getType(),warehouseSearch.getLocation(),
+        												warehouseSearch.getMinStorageSize(),warehouseSearch.getMaxStorageSize(),
+        												req.toPageable());
+        } else {
+            page = warehouseRepository.findAllForSearch(req.toPageable());
+        }
+
+        List<WarehouseSummary> content = page.getContent().stream().collect(Collectors.toList());
+        return new PageResponse<>(page.getTotalPages(), page.getTotalElements(), content);
+    }
 
 	private WarehouseSearch toSearchEntity(WarehouseSearchDTO dto) {
 		return toSearchEntity(dto, 1);
@@ -464,10 +487,10 @@ public class WarehouseDTOService {
 		
 		WarehouseSearch warehouseSearch = new WarehouseSearch();
 		
-		warehouseSearch.setLocation(dto.location);
-        warehouseSearch.setType(dto.type);
-        warehouseSearch.setMinStorageSize(dto.minStorageSize);
-        warehouseSearch.setMaxStorageSize(dto.maxStorageSize);
+		warehouseSearch.setLocation(dto.location != null ? dto.location :"");
+        warehouseSearch.setType(dto.type != null ? dto.type :"");
+        warehouseSearch.setMinStorageSize(dto.minStorageSize != null ? dto.minStorageSize : 0);
+        warehouseSearch.setMaxStorageSize(dto.maxStorageSize != null ? dto.maxStorageSize : 999999999);
         
         return warehouseSearch;
 	}

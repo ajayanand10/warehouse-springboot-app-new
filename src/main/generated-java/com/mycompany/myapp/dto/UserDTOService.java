@@ -238,6 +238,10 @@ public class UserDTOService {
 		return toDTO(userRepository.findByConfirmationToken(confirmationToken));
 	}
 	
+	public UserDTO findByResetToken(String resetToken) {
+		return toDTO(userRepository.findByResetToken(resetToken));
+	}
+	
 	@Transactional
 	public UserDTO saveUser(User user)
 	{

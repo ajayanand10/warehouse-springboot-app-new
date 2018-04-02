@@ -4,6 +4,7 @@ import org.springframework.data.jpa.domain.Specification;
 
 import com.mycompany.myapp.domain.Warehouse;
 import com.mycompany.myapp.domain.WarehouseSearch;
+import com.mycompany.myapp.domain.WarehouseSearchResults;
 import com.mycompany.myapp.domain.Warehouse_;
 
 public final class WarehouseSpecifications {

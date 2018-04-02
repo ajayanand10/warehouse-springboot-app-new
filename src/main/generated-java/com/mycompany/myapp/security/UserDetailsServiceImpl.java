@@ -61,7 +61,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         log.debug("Security verification for user '{}'", username);
 
-        User account = userRepository.getByLogin(username);
+//        User account = userRepository.getByLogin(username);
+        User account = userRepository.getByEmail(username);
 
         if (account == null) {
             log.info("User {} could not be found", username);

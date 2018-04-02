@@ -79,7 +79,8 @@ public class WarehouseDTO {
     public Integer version;
     
     public List<GoodsDTO> theGoods;
-	
+	public String lat;
+	public String lng;
 
     @JsonIgnore
     public boolean isIdSet() {

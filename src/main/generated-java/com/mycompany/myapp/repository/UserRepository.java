@@ -30,7 +30,8 @@ public interface UserRepository extends JpaRepository<User, Integer> {
      * @param login the unique value
      * @return the corresponding {@link User} persistent instance or null
      */
-    User getByLogin(String login);
+//    User getByLogin(String login);
+    User getByEmail(String email);
 
     default List<User> complete(String query, int maxResults) {
         User probe = new User();
@@ -46,4 +47,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     //added by Ajay
     User findByEmail(String email);
     User findByConfirmationToken(String confirmationToken);
+    User findByResetToken(String resetToken);
+    
 }

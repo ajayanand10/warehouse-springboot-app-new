@@ -81,4 +81,8 @@ public abstract class Warehouse_ {
     
     // Many to many
     public static volatile ListAttribute<Warehouse, Goods> goods;
+    
+    public static volatile SingularAttribute<Warehouse, String> lat;
+    public static volatile SingularAttribute<Warehouse, String> lng;
+    
 }

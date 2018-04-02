@@ -77,6 +77,7 @@ public class User implements Identifiable<Integer>, Serializable {
     
     //added manually
     private String confirmationToken;
+    private String resetToken;
 
     @Override
     public String entityClassName() {
@@ -128,9 +129,9 @@ public class User implements Identifiable<Integer>, Serializable {
     }
     // -- [login] ------------------------
 
-    @NotEmpty
+//    @NotEmpty
     @Size(max = 100)
-    @Column(name = "login", nullable = false, unique = true, length = 100)
+    @Column(name = "login", unique = true, length = 100)
     public String getLogin() {
         return login;
     }
@@ -485,6 +486,16 @@ public class User implements Identifiable<Integer>, Serializable {
 	public void setConfirmationToken(String confirmationToken) {
 		this.confirmationToken = confirmationToken;
 	}
+
+	@Column(name = "reset_token", length = 36)
+	public String getResetToken() {
+		return resetToken;
+	}
+
+	public void setResetToken(String resetToken) {
+		this.resetToken = resetToken;
+	}
+	
 	
     
     

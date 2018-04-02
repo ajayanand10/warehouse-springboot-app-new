@@ -40,7 +40,7 @@ import com.mycompany.myapp.repository.EnquiryRepository;
 import com.mycompany.myapp.rest.support.AutoCompleteQuery;
 
 @RestController
-@RequestMapping("/api/enquiries")
+@RequestMapping("/pages/enquiries")
 public class EnquiryResource {
 
     private final Logger log = LoggerFactory.getLogger(EnquiryResource.class);

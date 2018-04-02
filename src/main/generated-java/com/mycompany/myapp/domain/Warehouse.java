@@ -111,6 +111,8 @@ public class Warehouse implements Identifiable<Integer>, Serializable {
     
     // Many to many
     private List<Goods> goods = new ArrayList<Goods>();
+    private String lat;
+    private String lng;
 
     @Override
     public String entityClassName() {
@@ -1076,8 +1078,28 @@ public class Warehouse implements Identifiable<Integer>, Serializable {
     public void setGoods(List<Goods> goods) {
         this.goods = goods;
     }
+    
+    // -- [latitude] ------------------------
+    @Column(name = "latitude", precision = 20)
+    public String getLat() {
+		return lat;
+	}
 
-    /**
+	public void setLat(String lat) {
+		this.lat = lat;
+	}
+
+	// -- [longitude] ------------------------
+	@Column(name = "longitude", precision = 20)
+	public String getLng() {
+		return lng;
+	}
+
+	public void setLng(String lng) {
+		this.lng = lng;
+	}
+
+	/**
      * Helper method to add the passed {@link Warehouse} to the {@link #warehouses} list.
      */
     public boolean addAWarehouse(Goods aGood) {
