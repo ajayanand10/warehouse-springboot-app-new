@@ -21,6 +21,7 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\GoodsRepository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Record_.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\UseCase3Pk_.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\WarehouseSearchResults_.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\UseCase2.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Warehouse_.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\WarehouseReviewRepository.java
@@ -28,6 +29,8 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\CountryCode.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\OrderRepository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Order_.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\specifications\WarehouseSpecifications.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\WarehouseSearchResults.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\WarehouseServiceProviderDTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\security\AjaxAuthenticationSuccessHandler.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Databasechangeloglock.java
@@ -37,6 +40,7 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\WarehouseDTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\UserDTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\BookmarkDTO.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\PasswordResetResource.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Order.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\EnquiryDTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\RecordResource.java
@@ -49,7 +53,10 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\security\AlwaysSendUnauthorized401AuthenticationEntryPoint.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\security\UserContext.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Warehouse.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\support\Utility.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\DatabasechangeloglockResource.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\WarehouseSearchDTO.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\RegisterResource.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\UseCase3DTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\GuestDTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\WarehouseServiceProviderPk_.java
@@ -57,9 +64,12 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\PassportResource.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\WarehouseRepository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\WarehouseReviewDTO.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\WarehouseSearch.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\WarehousePhotoResource.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\WarehouseReviewResource.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\config\AmazonS3Configuration.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\UseCase2DTOService.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\WarehouseSearchResultsDTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Enquiry.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\WarehouseReview_.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\WarehouseGoodsRepository.java
@@ -69,6 +79,7 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\WarehousePhotoRepository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\security\AjaxAuthenticationFailureHandler.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\WarehouseGoodsResource.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\UserRegistrationResource.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\support\AutoCompleteQuery.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\UseCase2Repository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\UseCase2Resource.java
@@ -79,6 +90,7 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\BookmarkResource.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\EnquiryDTOService.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\UserResource.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\WarehouseSearch_.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\UserRepository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\WarehouseServiceProviderPk.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Databasechangelog_.java
@@ -115,10 +127,12 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\RateDTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\PassportRepository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\RateResource.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\EmailService.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\ProjectRepository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\UseCase3_.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\ProjectResource.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\WarehouseGoodsPk_.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\S3Resource.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\UseCase3DTOService.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\RoleDTOService.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\UseCase3Resource.java
@@ -140,10 +154,12 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\ProjectDTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\config\CustomLocalDateTimeDeserializer.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\SecurityResource.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\WarehouseSummary.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Databasechangelog.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\RecordDTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\Application.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\domain\Enquiry_.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\S3DTO.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\TestResource.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\WarehousePhotoDTOService.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\config\CustomLocalDateSerializer.java
@@ -157,6 +173,7 @@ D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\ma
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\DatabasechangelogRepository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\DatabasechangeloglockDTOService.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\rest\WarehouseServiceProviderResource.java
+D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\S3Service.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\WarehouseDTOService.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\repository\DatabasechangeloglockRepository.java
 D:\Ajay\Workspace\Celerio_Project_1\celerio-angular-quickstart\quickstart\src\main\generated-java\com\mycompany\myapp\dto\UseCase1DTO.java

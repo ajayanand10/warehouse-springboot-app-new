@@ -38,7 +38,18 @@ spring:
             hibernate.generate_statistics: false
 
     mail:
-        host: localhost
+        host: smtp.zoho.com
+        username: ajay.anand10@zoho.com
+        password: kalyan@10
+        port: 587
+        protocol: smtp
+        tls: true
+        properties.mail.smtp:
+          auth: true
+          starttls.enable: true    
+       
+
+
 
     messages:
         cache-seconds: 1

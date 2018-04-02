@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.mycompany.myapp.ApplicationTests" time="0.08" tests="1" errors="0" skipped="0" failures="0">
+<testsuite name="com.mycompany.myapp.ApplicationTests" time="0.104" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_161\jre\bin"/>
@@ -26,7 +26,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="D:\Ajay\Workspace\STS\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf645447970051216192.tmp"/>
+    <property name="classworlds.conf" value="D:\Ajay\Workspace\STS\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8515130879748790946.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_161\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:/Program Files/Java/jre1.8.0_161/bin/server;C:/Program Files/Java/jre1.8.0_161/bin;C:/Program Files/Java/jre1.8.0_161/lib/amd64;C:\oraclexe\app\oracle\product\10.2.0\server\bin;C:\ProgramData\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Sennheiser\SoftphoneSDK\;C:\Program Files\Apache\Maven\apache-maven-3.5.2\bin;C:\Program Files\Java\jdk1.8.0_161\bin;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\curl\curl-7.58.0;C:\Program Files\PostgreSQL\10\bin;C:\Users\ajanand\AppData\Local\Microsoft\WindowsApps;C:\Users\ajanand\AppData\Roaming\npm;C:\Program Files\Heroku\bin;C:\STS\sts-bundle\sts-3.9.2.RELEASE;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -39,7 +39,7 @@
     <property name="java.specification.version" value="1.8"/>
     <property name="file.encoding" value="Cp1252"/>
     <property name="user.name" value="ajanand"/>
-    <property name="java.class.path" value="C:\STS\sts-bundle\sts-3.9.2.RELEASE\plugins\org.eclipse.m2e.maven.runtime_1.8.2.20171007-0216\jars\plexus-classworlds-2.5.2.jar"/>
+    <property name="java.class.path" value="C:\STS\sts-bundle\sts-3.9.2.RELEASE\plugins\org.eclipse.m2e.maven.runtime_1.8.3.20180227-2135\jars\plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_161\jre"/>
@@ -60,5 +60,5 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="contextLoads" classname="com.mycompany.myapp.ApplicationTests" time="0.08"/>
+  <testcase name="contextLoads" classname="com.mycompany.myapp.ApplicationTests" time="0.104"/>
 </testsuite>
